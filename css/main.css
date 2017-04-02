@@ -79,10 +79,9 @@ body{
     width: 100%;
 	overflow:auto;
     position: absolute;
-    z-index: 0;
     box-shadow: 5px 5px 10px #777;
     border-radius: 0px 15px 15px 15px;
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-overflow-scrolling: touch;*/
 }
 .result-content{
 	overflow:auto;
@@ -94,14 +93,14 @@ body{
 .main-content{
     background-color: rgb(152,183,227);
     padding: 10px 10px;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 .group{
     text-align: center;
     margin: 8px 0px;
     position: relative;
     border: 1px solid transparent;
-    box-shadow: 2px 2px 5px #777;
+    /*box-shadow: 2px 2px 5px #777;*/
     display: inline-block;
     cursor: pointer;
 }
@@ -236,7 +235,6 @@ body{
 
 .active-content{
    display: block;
-    z-index: 3;
 }
 ::-webkit-scrollbar {
     width: 0px;
