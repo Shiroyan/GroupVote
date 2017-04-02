@@ -1,0 +1,245 @@
+body{
+    /*background-color: rgb(188,212,236);*/
+    padding: 10px 10px;
+}
+.header{
+    /*background-color: rgb(80,123,215);*/
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 5px 5px 10px #777;
+}
+.rule{
+    margin: 5px 15%;
+    color: black;
+    font-family: 微软雅黑;
+}
+.join{
+    border-radius: 5px;
+    background-color: rgb(199,217,241);
+    color: rgb(70,111,199);
+}
+.search{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 10px #777;
+    border-radius: 15px;
+}
+.search-content{
+    border-radius: 15px;
+    background-color: rgb(240,240,240);
+}
+.search-btn{
+    border-radius: 15px;
+}
+.shower{
+    text-align: center;
+    padding: 10px 10px;
+}
+.shower-nav{
+}
+.shower-nav p{
+    margin: 0px;
+
+}
+.main-tab,.self-tab,.all-tab{
+    position: relative;
+    border-radius: 15px 15px 0 0;
+    padding: 5px;
+    box-shadow: 5px 5px 10px #777;
+    cursor: pointer;
+}
+.main-tab{
+    background-color: rgb(152,183,227);
+    z-index: 0;
+}
+.self-tab{
+    background-color: rgb(114,155,217);
+    left: -8%;
+    z-index: 2;
+}
+.all-tab{
+    background-color: rgb(80,123,215);
+    left: -16%;
+    z-index: 1;
+}
+.active-tab{
+    z-index: 3;
+}
+.content-container{
+    clear: both;
+    position: relative;
+    z-index: 3;
+}
+.main-content, .self-content, .all-content, .result-content{
+    height: 700px;
+    width: 100%;
+	overflow:auto;
+    position: absolute;
+    z-index: 0;
+    box-shadow: 5px 5px 10px #777;
+    border-radius: 0px 15px 15px 15px;
+    -webkit-overflow-scrolling: touch;
+}
+.result-content{
+	overflow:auto;
+    display: none;
+    background-color: rgb(152,183,227);
+    padding: 5px 5px;
+}
+
+.main-content{
+    background-color: rgb(152,183,227);
+    padding: 10px 10px;
+    overflow: auto;
+}
+.group{
+    text-align: center;
+    margin: 8px 0px;
+    position: relative;
+    border: 1px solid transparent;
+    box-shadow: 2px 2px 5px #777;
+    display: inline-block;
+    cursor: pointer;
+}
+.group-header{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: transparent url("../images/group-header.png") no-repeat top;
+    background-size: contain;
+}
+.group-header .order{
+    color: yellow;
+    font-size: 0.8em;
+    padding: 0px 5px;
+}
+.group-mask{
+    position: absolute;
+    top:40%;
+    background-color: rgba(255,255,255,.5);
+    /*z-index: 1;*/
+    color: white;
+    width: 100%;
+}
+.group-mask .fav-count{
+    display: inline-block;
+    margin: 0px;
+}
+.group-mask .fav-icon{
+    display: inline-block;
+}
+.group-picture{
+    position: relative;
+    /*z-index: 0;*/
+}
+.group-footer .name{
+    color: white;
+    font-family: 微软雅黑;
+    margin: 3px 0px 0px 0px;
+}
+.self-content{
+    display: none;
+    padding: 5px 5px;
+    background-color: rgb(114,155,217);
+}
+.university{
+    margin: 5px 5px;
+    padding: 5px 5px;
+}
+.uni-header{
+    text-align: left;
+}
+.uni-logo{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+}
+.uni-title{
+    display: inline-block;
+    color: rgb(200,0,0);
+    font-size: 20px;
+    margin: 10px 0px 0px 5px;
+    line-height: 0px;
+}
+.uni-rank-table{
+
+}
+.uni-rank-table .name{
+    color: black;
+}
+.uni-rank-table .rank,.uni-rank-table .fav-count{
+    color: rgb(200,0,0);
+}
+.uni-rank-table .rank, .uni-rank-table .name, .uni-rank-table .fav-count{
+    font-weight: bold;
+}
+.uni-rank-table .fav-icon, .uni-rank-table .fav-count{
+    display: inline-block;
+}
+
+.all-content{
+    display: none;
+    background-color: rgb(80,123,215);
+    padding: 5px 5px;
+}
+.all-uni-rank-table p{
+    margin: 0px;
+}
+.all-uni-rank-table .table-row{
+    width: 100%;
+    height: 40px;
+    text-align: left;
+}
+.all-uni-rank-table .item-1, .all-uni-rank-table .item-2, .all-uni-rank-table .item-3{
+    vertical-align: middle;
+    display: inline-block;
+}
+.all-uni-rank-table .item-1{
+    width: 55%;
+    font-size: 0.9em;
+}
+.all-uni-rank-table .item-2{
+    width: 30%;
+    text-align: center;
+}
+.all-uni-rank-table .item-3{
+    width:10%;
+    text-align: right;
+}
+
+.all-uni-rank-table .name, .all-uni-rank-table .fav-icon, .all-uni-rank-table .fav-count,
+.all-uni-rank-table .rank{
+    display: inline-block;
+    font-weight: bolder;
+    /*margin: 5px 0px 0px 0px;*/
+}
+.all-uni-rank-table .fav-icon{
+    vertical-align: -5%;
+}
+.all-uni-rank-table .uni-logo{
+    vertical-align: middle;
+    width: 28px;
+    height: 28px;
+}
+.all-uni-rank-table .name, .all-uni-rank-table .fav-count{
+    color: white;
+    font-size: 1.2em;
+}
+.all-uni-rank-table .rank{
+    color: yellow;
+    font-size: 1.5em;
+}
+
+.active-content{
+   display: block;
+    z-index: 3;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+

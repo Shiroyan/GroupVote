@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <title>深圳高校</title>
+
+        <!-- Bootstrap -->
+        <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+    </head>
+<body>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<!--<script src="./js/jquery-3.1.1.min.js"></script>-->
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./js/main.js"></script>
+
+<!--头部 赞助商广告位 & 社团报名入口-->
+<div class="header">
+    <div class="sponsor">
+        <img src="images/sponsor.png" class="img-responsive center-block" alt="赞助商广告">
+    </div>
+
+    <div class="rule">
+        <p>荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知荔知</p>
+    </div>
+
+    <!-- 金数据接口 -->
+    <a class="btn btn-default join" href="#">进入报名页面</a>
+</div>
+<hr style="border: 1px dashed white">
+
+<!-- 搜索框 -->
+<!-- 向服务器请求 -->
+<div class="input-group search">
+    <input type="text" class="form-control search-content" placeholder="请输入参赛编号搜索社团">
+    <span class="input-group-btn">
+        <button class="btn btn-default search-btn" type="button">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+    </span>
+</div>
+
+<!-- 展示部分 -->
+<div class="container-fluid shower">
+
+    <!-- 主会场/校榜/全榜 切换标签-->
+    <nav class="shower-nav" role="navigation">
+        <!-- 主会场标签 -->
+        <div class="col-xs-4 main-tab active-tab" id="main">
+            <p>主会场</p>
+        </div>
+
+        <!-- 校榜标签 -->
+        <div class="col-xs-4 self-tab" id="self">
+            <p>     <img src="images/self-rank-logo.png"> 校榜</p>
+        </div>
+        <!-- 全榜标签 -->
+        <div class="col-xs-4 all-tab">
+            <p>     <img src="images/all-rank-logo.png"> 全榜</p>
+        </div>
+    </nav>
+
+    <!-- 主会场/校榜/全榜 内容 -->
+    <!-- 在页面打开加载的时候（windows.onload）向服务器发送请求加载内容-->
+    <div class="content-container">
+        <!--主会场内容-->
+        <div class="main-content active-content">
+           <!--PHP-- 放 col-xs-6 那一段-->
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                 <div class="group">
+
+                     <div class="group-picture">
+                         <img src="images/group_pic.png" alt="社团图片">
+                     </div>
+
+                     <div class="group-header">
+                         <p class="order"> No.001</p>
+                     </div>
+
+                     <div class="group-mask">
+                         <img src="images/white-heart.png">
+                         <p class="fav-count">223</p>
+                     </div>
+
+                     <div class="group-footer">
+                         <p class="text-center name">街头传播协会</p>
+                     </div>
+                 </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+
+                <!-- 社团展示 -->
+                <div class="group">
+
+                    <div class="group-picture">
+                        <img src="images/group_pic.png" alt="社团图片">
+                    </div>
+
+                    <div class="group-header">
+                        <p class="order"> No.001</p>
+                    </div>
+
+                    <div class="group-mask">
+                        <img src="images/white-heart.png">
+                        <p class="fav-count">223</p>
+                    </div>
+
+                    <div class="group-footer">
+                        <p class="text-center name">街头传播协会</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--校榜内容-->
+        <div class="self-content">
+            <p class="text-left" style="color: lightgray; ">* 校榜为各学校点赞排名前五的社团</p>
+
+            <div class="university">
+                <div class="uni-header">
+                    <img src="images/uni-logo.jpg" alt="校徽" class="img-circle uni-logo">
+                    <p class="uni-title">深圳大学</p>
+                </div>
+
+                <div class="uni-rank-table">
+                    <!--table-row 是你循环的地方~  -->
+                    <div class="table-row">
+                        <div class="col-xs-2">
+                            <p class="text-right rank">1</p>
+                        </div>
+                        <div class="col-xs-5">
+                            <a class="name">校学生会</a>
+                        </div>
+                        <div class="col-xs-5">
+                            <img src="images/red-heart-s.png" class="fav-icon">
+                            <p class="fav-count">1322</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border: 1px dashed white">
+
+            </div>
+
+        </div>
+
+        <!--全榜内容-->
+        <div class="all-content">
+            <p class="text-left" style="color: lightgray; ">* 校榜为各学校点赞排名前五的社团</p>
+            <div class="all-uni-rank-table">
+                <!--PHP 放table-row -->
+
+                <div class="table-row">
+                    <div class="item-1">
+                        <img src="images/uni-logo.jpg" class="img-circle uni-logo">
+                        <a class="name">吱吱吱吱吱知知</a>
+                    </div>
+                    <div class="item-2">
+                        <img src="images/yellow-heart.png" class="fav-icon">
+                        <p class="fav-count">6666</p>
+                    </div>
+                    <div class="item-3">
+                        <p class="rank">1</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!--搜索内容-->
+        <div class="result-content"></div>
+    </div>
+
+</div>
+
+
+
+</div>
+</body>
+</html>
