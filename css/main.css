@@ -1,40 +1,67 @@
 body{
-    /*background-color: rgb(188,212,236);*/
-    padding: 10px 10px;
+    background-color: white;
 }
-.header{
-    /*background-color: rgb(80,123,215);*/
-    text-align: center;
-    border-radius: 15px;
-    padding: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-    box-shadow: 5px 5px 10px #777;
+.navbar{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    margin-bottom: 0px;
+    min-height: 40px;
+    background-color: rgba(255,255,255,.3);
 }
-.rule{
-    margin: 5px 15%;
-    color: black;
-    font-family: 微软雅黑;
+.navbar-join{
+    margin: 7px 0px 5px 0px;
+    float: left;
+    vertical-align: middle;
+    font-size: 1.3em;
+    color: rgb(80,123,215);
 }
-.join{
-    border-radius: 5px;
-    background-color: rgb(199,217,241);
-    color: rgb(70,111,199);
+.navbar-join img{
+    height: 30px;
 }
-.search{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    box-shadow: 5px 5px 10px #777;
-    border-radius: 15px;
+.navbar-show-search{
+    border: 0px;
+    background-color: transparent;
+    padding-top: 10px;
+    float: right;
+    color: #00aeef;
+    font-size: 1.4em;
+}
+
+.search-bar{
+    display: none;
+    min-height: 44px;
 }
 .search-content{
-    border-radius: 15px;
-    background-color: rgb(240,240,240);
+    margin: 5px 0px 0px 5px;
+    padding: 5px;
+    float: left;
+    width: 75%;
+    border-radius: 10px;
 }
-.search-btn{
-    border-radius: 15px;
+.search-bar-btn{
+    margin: 5px 0px 3px 0px;
+    font-size: 1.3em;
+    border: 0px;
+    float: right;
+    color: #00aeef;
 }
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+#bar{
+    width: 0%;
+    max-width: 100%;
+    height: 2px;
+    background: #7fc242;
+}
+#progressBar{
+    width: 100%;
+    background: #EDEDED;
+}
+
 .shower{
     text-align: center;
     padding: 10px 10px;
@@ -43,7 +70,6 @@ body{
 }
 .shower-nav p{
     margin: 0px;
-
 }
 .main-tab,.self-tab,.all-tab{
     position: relative;
@@ -75,16 +101,15 @@ body{
     z-index: 3;
 }
 .main-content, .self-content, .all-content, .result-content{
-    height: 700px;
+    height: 500px;
     width: 100%;
-	overflow:auto;
+	overflow:hidden;
     position: absolute;
     box-shadow: 5px 5px 10px #777;
     border-radius: 0px 15px 15px 15px;
     /*-webkit-overflow-scrolling: touch;*/
 }
 .result-content{
-	overflow:auto;
     display: none;
     background-color: rgb(152,183,227);
     padding: 5px 5px;
@@ -92,7 +117,8 @@ body{
 
 .main-content{
     background-color: rgb(152,183,227);
-    padding: 10px 10px;
+    overflow: hidden;
+    /*padding: 10px 10px;*/
     /*overflow: auto;*/
 }
 .group{
@@ -236,8 +262,8 @@ body{
 .active-content{
    display: block;
 }
-::-webkit-scrollbar {
-    width: 0px;
-}
+/*::-webkit-scrollbar {*/
+    /*width: 0px;*/
+/*}*/
 
 

@@ -3,6 +3,7 @@
  */
 $(document).ready(function () {
 
+
     var mainTab = $('.main-tab');
     var selfTab = $('.self-tab');
     var allTab = $('.all-tab');
@@ -10,58 +11,71 @@ $(document).ready(function () {
     var selfCon = $('.self-content');
     var allCon = $('.all-content');
 
+    // add iscroller
+
     //与“ 社团介绍页面” 之间的通讯（利用sessionStorage）
     //在“社团介绍界面”中点击 “主会场” 和 “排行榜”按钮进行跳转到主页中的指定区域
 
     //向服务器发送请求，获取 榜单/主会场等数据
-    $(window).on('load',function () {
-        //检查sessionStorage中是否存在key “trigger”
-        //若存在则说明是从介绍页面跳转过来的~
-        var type = sessionStorage.getItem('trigger');
-        output(type);
-        if(type == 'main'){
-            mainTab.click();
-        }
-        else if(type == 'rank'){
-            selfTab.click();
-        }
-        //跳转成功过后，删除trigger，以免影响后续的浏览
-        sessionStorage.removeItem('trigger');
+    // $(window).on('load',function () {
+    //
+    //     //检查sessionStorage中是否存在key “trigger”
+    //     //若存在则说明是从介绍页面跳转过来的~
+    //     var type = sessionStorage.getItem('trigger');
+    //     output(type);
+    //     if(type == 'main'){
+    //         mainTab.click();
+    //     }
+    //     else if(type == 'rank'){
+    //         selfTab.click();
+    //     }
+    //     //跳转成功过后，删除trigger，以免影响后续的浏览
+    //     sessionStorage.removeItem('trigger');
+    // //    ......................................
+    // });
 
-
-    //    ......................................
+    $('.navbar-show-search').on('click', function () {
+        $('.my-navbar').fadeOut(1000);
+        $('.search-bar').fadeIn(800);
     });
-    //处理搜索时间
-    $('.search-btn').on('click',function () {
-       var searchContent = $('.search-content').val();
-       $.get("./controller/search.php",{search: searchContent},function (data,status) {
-           // output(searchContent);
+    $('.close-btn').on('click', function () {
+        $('.search-bar').fadeOut(1000);
+        $('.my-navbar').fadeIn(800);
+    });
+    //处理搜索事件
+    $('.search-btn').on('click', function () {
+        var searchContent = $('.search-content');
 
-           $(".active-content").removeClass("active-content");
-           $(".active-tab").removeClass("active-tab");
-           $(".main-tab").addClass("active-tab");
-           $(".result-content").addClass("active-content");
+        var searchVal = searchContent.val();
+        $.get("./controller/search.php", {search: searchVal}, function (data, status) {
+            // output(searchContent);
 
-           var temp = "";
-           for(var i = 0; i < 3; i++){
-               temp += ('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">' +
-                   '<!-- 社团展示 --> <div class="group"> <div class="group-picture"> <img src="images/group_pic.png" alt="社团图片"> </div>' +
-                   '<div class="group-header"> <p class="order"> No.001</p> </div> <div class="group-mask"> <img src="images/white-heart.png">' +
-                   '<p class="fav-count">223</p> </div> <div class="group-footer"> <p class="text-center name">街头传播协会</p> </div> </div> </div>');
-           }
-           $('.result-content').html(temp);
+            $(".active-content").removeClass("active-content");
+            $(".active-tab").removeClass("active-tab");
+            $(".main-tab").addClass("active-tab");
+            $(".result-content").addClass("active-content");
 
-           if(status == "success"){
-        	   $('.result-content').html(data);
+            var temp = "";
+            for (var i = 0; i < 3; i++) {
+                temp += ('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">' +
+                '<!-- 社团展示 --> <div class="group"> <div class="group-picture"> <img src="images/group_pic.png" alt="社团图片"> </div>' +
+                '<div class="group-header"> <p class="order"> No.001</p> </div> <div class="group-mask"> <img src="images/white-heart.png">' +
+                '<p class="fav-count">223</p> </div> <div class="group-footer"> <p class="text-center name">街头传播协会</p> </div> </div> </div>');
+            }
+            $('.result-content').html(temp);
 
-           }
-       })
+            if (status == "success") {
+                $('.result-content').html(data);
+
+            }
+        })
+
     });
     //处理标签点击后页面切换
-    mainTab.on('click',function () {
+    mainTab.on('click', function () {
         removeActive('.main');
     });
-    selfTab.on('click',function () {
+    selfTab.on('click', function () {
         removeActive('.self');
     });
     //只生效一次，请求后暂存在sessionStorage中，用户下次点击是不会再次请求，而是从Storage中获取
@@ -99,7 +113,7 @@ $(document).ready(function () {
     //         }
     //     });
     // });
-    allTab.on('click',function () {
+    allTab.on('click', function () {
         removeActive('.all');
     });
     // allTab.one('click',function () {
@@ -139,7 +153,7 @@ $(document).ready(function () {
     // });
     //处理主会场“缩略图”点击的事件
     //利用sessionStorage记录好已有的信息~ 并进行跳转到“介绍”界面
-    $('.group').on('click',groupHandler);
+    $('.group').on('click', groupHandler);
 
 //    处理主会场内容滚动事情，异步请求新的数据
 //    ..................................
@@ -165,7 +179,7 @@ function groupHandler() {
     var group = $(this);
 
     var order = Number(group.find('.order').text().slice(4));
-    window.location.href="introduction.php?id=" + order;
+    window.location.href = "introduction.php?id=" + order;
 }
 function output(m) {
     console.log(m);
