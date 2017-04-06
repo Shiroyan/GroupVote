@@ -1,0 +1,193 @@
+body{
+    overflow:hidden;
+    background-color: white;
+
+}
+/*-----------------------------------------------------------------
+                            导航栏样式
+--------------------------------------------------------------------*/
+.navbar{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    margin-bottom: 0px;
+    min-height: 40px;
+    background-color: rgba(255,255,255,.3);
+}
+.navbar-join{
+    margin: 7px 0px 5px 0px;
+    float: left;
+    vertical-align: middle;
+    font-size: 1.3em;
+    color: rgb(80,123,215);
+}
+.navbar-join img{
+    height: 30px;
+}
+.navbar-show-search{
+    border: 0px;
+    position: absolute;
+    right: 0px;
+    background-color: transparent;
+    padding-top: 10px;
+    color: #00aeef;
+    font-size: 1.4em;
+}
+
+.search-bar{
+    display: none;
+    min-height: 44px;
+}
+.search-content{
+    margin: 5px 0px 0px 5px;
+    padding: 5px;
+    float: left;
+    width: 75%;
+    border-radius: 10px;
+    background: transparent;
+}
+.search-bar-btn{
+    margin: 5px 0px 3px 0px;
+    font-size: 1.3em;
+    border: 0px;
+    float: right;
+    color: #00aeef;
+    background: transparent;
+}
+/*-----------------------------------------------------------------
+                                轮播样式
+--------------------------------------------------------------------*/
+#owl-demo{
+    position: relative;
+    top:44px;
+    margin-bottom: 40px;
+}
+.c1{
+    background-image: url("../images/1.jpg");
+}
+.c2{
+    background-image: url("../images/2.jpg");
+}
+.c3{
+    background-image: url("../images/3.jpg");
+}
+.c1, .c2, .c3{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+#bar{
+    width: 0%;
+    max-width: 100%;
+    height: 2px;
+    background: #7fc242;
+}
+#progressBar{
+    width: 100%;
+    background: #EDEDED;
+}
+/*-----------------------------------------------------------------
+                            展示部分
+--------------------------------------------------------------------*/
+.exhibition{
+    position: relative;
+}
+/*-----------------------------------
+            中部标签（tab）样式
+--------------------------------------*/
+.main-tab, .uni-rank-tab, .sum-rank-tab{
+    width: 33.3%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-family: 微软雅黑;
+    color: black;
+}
+
+/*-----------------------------------
+             主会场内容样式
+--------------------------------------*/
+
+
+/*      主会场内容组件club样式    */
+.tab-content{
+    position: relative;
+}
+#main-content, #uni-rank-content, #sum-rank-content{
+    padding: 8px 15px;
+    width: 100%;
+    overflow: hidden;
+}
+.club{
+    box-sizing: content-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    height: auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.club-header, .club-info{
+    height: inherit;
+    align-items: center;
+    overflow: hidden;
+}
+.club-header{
+    margin: 10px auto;
+    width: 50%;
+    height: 75px;
+    display: inline-flex;
+    border: 1px solid #cccccc;
+    border-radius: .5em;
+}
+.club-info{
+    margin-left: 10%;
+    width: 40%;
+    text-align: left;
+    font-family:黑体;
+    color: #aaa;
+}
+.club-from{
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: .1em;
+}
+.club-name{
+    font-size: 1.2em;
+    margin-bottom: .2em;
+    font-weight: 500;
+}
+.club-fav-count span:first-child{
+    color: red;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+.club-fav-count .num{
+    font-family:黑体;
+    font-size: 1.3em;
+    font-weight: 900;
+}
+
+.club-id{
+    height: 100%;
+    background-color: #5bc0de;
+    width: 10%;
+}
+.club-id>p{
+    line-height: 5;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+.club-pic{
+    background-image: url("../images/club-pic.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 90%;
+}

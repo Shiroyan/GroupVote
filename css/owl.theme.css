@@ -4,7 +4,6 @@
 */
 
 .owl-theme .owl-controls{
-	margin-top: 5px;
 	text-align: center;
 }
 
@@ -37,7 +36,7 @@
 
 .owl-theme .owl-controls .owl-page{
 	display: inline-block;
-	zoom: 1;
+	zoom: .6;
 	*display: inline;/*IE7 life-saver */
 }
 .owl-theme .owl-controls .owl-page span{

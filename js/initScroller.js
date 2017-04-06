@@ -1,15 +1,24 @@
 /**
  * Created by Siro on 2017/4/2.
  */
-function loaded() {
-    var myScroll = new IScroll('.main-content'
+function initScroller(e,target) {
+    if(target == null){
+        target = '#main-content';
+    }
+    var mainScroll = new IScroll(target
         , {
             scrollbars: true,
             mouseWheel: true,
             interactiveScrollbars: true,
             shrinkScrollbars: 'scale',
-            fadeScrollbars: true
+            fadeScrollbars: true,
+            probeType: 2
         }
     );
-};
-window.onload = loaded;
+    output("Max: " + mainScroll.maxScrollY);
+    mainScroll.on('scroll',function () {
+        output(this.y);
+    })
+
+
+}
