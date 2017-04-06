@@ -118,7 +118,41 @@ body{
     padding: 8px 15px;
     width: 100%;
     overflow: hidden;
+    position: absolute;
 }
+.scroller{
+    position: absolute;
+    width: 100%;
+}
+.pullDown, .pullUp{
+    height: 200px;
+    width: 100%;
+    left: -15px;
+    background: #eee;
+    text-align: center;
+}
+.pullDown{
+    position: absolute;
+    top:-208px;
+}
+.pullUp{
+    position: absolute;
+    bottom: -208px;
+}
+
+.pullDownLabel, .pullUpLabel{
+    font-size: 1.3em;
+    font-weight: 500;
+    color: black;
+    font-family: 微软雅黑;
+}
+.pullDownLabel{
+    line-height: 320px;
+}
+.pullUpLabel{
+    line-height: 50px;
+}
+
 .club{
     box-sizing: content-box;
     display: -webkit-flex;
@@ -151,12 +185,12 @@ body{
     font-family:黑体;
     color: #aaa;
 }
-.club-from{
+.club-name{
     font-weight: bold;
     font-size: 1.5em;
     margin-bottom: .1em;
 }
-.club-name{
+.club-from{
     font-size: 1.2em;
     margin-bottom: .2em;
     font-weight: 500;
@@ -184,7 +218,7 @@ body{
     font-weight: bolder;
 }
 .club-pic{
-    background-image: url("../images/club-pic.png");
+    /*background-image: url("../images/club-pic.png");*/
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

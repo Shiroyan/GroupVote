@@ -2,6 +2,8 @@
  * Created by Siro on 2017/4/4.
  */
 $(document).ready(function () {
+    init();
+
     $(window).on('load',function (e) {
         var clientHeight = window.innerHeight;
         var clientWidth = window.innerWidth;
@@ -30,30 +32,7 @@ $(document).ready(function () {
     //处理搜索事件
     $('.search-btn').on('click', function () {
         var searchContent = $('.search-content');
-
-        var searchVal = searchContent.val();
-        $.get("./controller/search.php", {search: searchVal}, function (data, status) {
-            // output(searchContent);
-
-            $(".active-content").removeClass("active-content");
-            $(".active-tab").removeClass("active-tab");
-            $(".main-tab").addClass("active-tab");
-            $(".result-content").addClass("active-content");
-
-            var temp = "";
-            for (var i = 0; i < 3; i++) {
-                temp += ('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">' +
-                '<!-- 社团展示 --> <div class="group"> <div class="group-picture"> <img src="images/group_pic.png" alt="社团图片"> </div>' +
-                '<div class="group-header"> <p class="order"> No.001</p> </div> <div class="group-mask"> <img src="images/white-heart.png">' +
-                '<p class="fav-count">223</p> </div> <div class="group-footer"> <p class="text-center name">街头传播协会</p> </div> </div> </div>');
-            }
-            $('.result-content').html(temp);
-
-            if (status == "success") {
-                $('.result-content').html(data);
-            }
-        })
-
+        output('Search content: ' + searchContent);
     });
 
     $('.main-tab').on('click', function (e) {
@@ -76,6 +55,47 @@ $(document).ready(function () {
     })
 });
 
+function appendIntoMainContent(options) {
+    var defaults = {
+        club_id: 1,
+        club_pic: "images/club-pic.png",
+        club_name: "深大荔知",
+        club_from: "深圳大学",
+        club_fav_count: "666"
+    }
+    options = $.extend(defaults,options);
+
+    var htm = '<div class="club"><div class="club-header"><div class="club-id"><p>' +
+        //id
+        options.club_id +
+
+        "</p></div><div class=\"club-pic\" style=\"background-image: url('"+
+        //club_pic
+        options.club_pic +
+
+        "')\"></div></div><div class=\"club-info\"><div class=\"club-name\">" +
+        //club_name
+        options.club_name +
+
+        '</div><div class="club-from">' +
+        //club_from
+        options.club_from +
+
+        '</div><div class="club-fav-count"><span class="glyphicon glyphicon-heart"></span><span class="num">' +
+        //club_fav_count
+        options.club_fav_count +
+
+        '</span></div></div></div>';
+
+    $('#main-content .scroller .content').append(htm);
+
+}
+function init() {
+    for(var i = 0; i < 5; i++){
+        appendIntoMainContent({club_id: i+1});
+    }
+
+}
 function output(m) {
     console.log(m);
 }
