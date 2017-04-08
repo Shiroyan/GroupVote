@@ -36,7 +36,7 @@ $(document).ready(function () {
     //处理搜索事件
     $('.search-content').on('keydown',function (e) {
         if(e.keyCode == 13){
-            alert('Enter');
+            $('.search-btn').trigger('click');
         }
 
     });
