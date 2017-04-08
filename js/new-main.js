@@ -1,15 +1,17 @@
 /**
  * Created by Siro on 2017/4/4.
  */
+
+var clientHeight, clientWidth;
+var searchfirstClick = false;
 $(document).ready(function () {
-    init();
+
 
     $(window).on('load',function (e) {
-        var clientHeight = window.innerHeight;
-        var clientWidth = window.innerWidth;
-        var carouselImgHeight = clientWidth * 0.4;
+        clientHeight = window.innerHeight;
+        clientWidth = window.innerWidth;
 
-        // $('#owl-demo .item img').css({height: carouselImgHeight + "px"});
+        var carouselImgHeight = clientWidth * 0.4;
         $('.c1, .c2, .c3').css({height: carouselImgHeight + "px"});
         var contentHeight = clientHeight - $('#main-content').offset().top;
 
@@ -17,22 +19,39 @@ $(document).ready(function () {
         $('#main-content').css({height: contentHeight + "px"});
         $('#uni-rank-content').css({height: contentHeight + "px"});
         $('#sum-rank-content').css({height: contentHeight + "px"});
+        $('#result-content').css({height: clientHeight-43 + "px"});
+        init();
 
-        initScroller(e,"#main-content");
     })
 
     $('.navbar-show-search').on('click', function () {
-        $('.my-navbar').fadeOut(1000);
-        $('.search-bar').fadeIn(800);
+        $('.my-navbar').fadeOut();
+        $('.search-bar').fadeIn();
     });
     $('.close-btn').on('click', function () {
-        $('.search-bar').fadeOut(1000);
-        $('.my-navbar').fadeIn(800);
+        $('.search-bar').fadeOut();
+        $('.my-navbar').fadeIn();
+        $('#result-content').slideUp(200);
     });
     //处理搜索事件
+    var rsScroller;
     $('.search-btn').on('click', function () {
-        var searchContent = $('.search-content');
-        output('Search content: ' + searchContent);
+        var searchContent = $('.search-content').val();
+        var resultContainer = $('#result-content');
+
+        resultContainer.fadeIn();
+
+        for(var i = 0; i < 7; i++){
+            appendIntoMainContent({target: '#result-content .scroller'});
+        }
+
+        if(!searchfirstClick){
+            rsScroller = initScroller('#result-content');
+            searchfirstClick = true;
+        }
+        else{
+            rsScroller.refresh();
+        }
     });
 
     $('.main-tab').on('click', function (e) {
@@ -43,14 +62,14 @@ $(document).ready(function () {
         output('Club click');
     });
 
-    $('.uni-rank-tab').one('click',function (e) {
-        setTimeout(function() {
-            initScroller(e, "#uni-rank-content");
-        },500);
+    $('.uni-rank-tab').one('click',function () {
+       setTimeout(function () {
+           initScroller('#uni-rank-content');
+       },500);
     });
-    $('.sum-rank-tab').one('click',function (e) {
-        setTimeout(function() {
-            initScroller(e, "#sum-rank-content");
+    $('.sum-rank-tab').one('click',function () {
+        setTimeout(function () {
+            initScroller('#sum-rank-content');
         },500);
     })
 });
@@ -61,7 +80,8 @@ function appendIntoMainContent(options) {
         club_pic: "images/club-pic.png",
         club_name: "深大荔知",
         club_from: "深圳大学",
-        club_fav_count: "666"
+        club_fav_count: "666",
+        target: '#main-content .scroller .content'
     }
     options = $.extend(defaults,options);
 
@@ -87,13 +107,45 @@ function appendIntoMainContent(options) {
 
         '</span></div></div></div>';
 
-    $('#main-content .scroller .content').append(htm);
+    $(options.target).append(htm);
 
 }
 function init() {
+
+    // $.get('http://192.168.220.129:8888',{type: 'init'},function (data,status) {
+    //     if(status == 'success'){
+    //         var dataObj = JSON.parse(data);
+    //
+    //         var headObj = dataObj.head;
+    //         var clubObjArr = dataObj.data;
+    //
+    //         if(headObj.status == "success"){
+    //             var len = clubObjArr.length;
+    //             for(var i = 0; i < len; i++){
+    //                 var co = clubObjArr[i]; // co = clubObject
+    //                 appendIntoMainContent({
+    //                     club_id: co.club_id,
+    //                     club_pic: co.club_pic,
+    //                     club_name: co.club_name,
+    //                     club_from: co.club_from,
+    //                     club_fav_count: co.club_fav_count
+    //                 });
+    //             }
+    //             setTimeout(function () {
+    //                 initScroller("#main-content");
+    //             },500);
+    //         }
+    //         else{
+    //             alert(headObj.extraInfo);
+    //         }
+    //     }
+    // });
     for(var i = 0; i < 5; i++){
         appendIntoMainContent({club_id: i+1});
     }
+    setTimeout(function () {
+        initScroller("#main-content");
+    },500);
 
 }
 function output(m) {

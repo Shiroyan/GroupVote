@@ -20,9 +20,16 @@ body{
     vertical-align: middle;
     font-size: 1.3em;
     color: rgb(80,123,215);
+    width: 35%;
 }
 .navbar-join img{
     height: 30px;
+}
+.divider{
+    /*font-weight: bold;*/
+    color: #ddd;
+    font-size: 1.8em;
+    line-height: 40px;
 }
 .navbar-show-search{
     border: 0px;
@@ -43,10 +50,13 @@ body{
     padding: 5px;
     float: left;
     width: 75%;
+    height: 100%;
     border-radius: 10px;
     background: transparent;
 }
 .search-bar-btn{
+    padding: 6px 8px;
+    height: 100%;
     margin: 5px 0px 3px 0px;
     font-size: 1.3em;
     border: 0px;
@@ -97,6 +107,7 @@ body{
             中部标签（tab）样式
 --------------------------------------*/
 .main-tab, .uni-rank-tab, .sum-rank-tab{
+
     width: 33.3%;
     text-align: center;
     font-weight: 500;
@@ -172,7 +183,7 @@ body{
 }
 .club-header{
     margin: 10px auto;
-    width: 50%;
+    width: 45%;
     height: 75px;
     display: inline-flex;
     border: 1px solid #cccccc;
@@ -184,6 +195,7 @@ body{
     text-align: left;
     font-family:黑体;
     color: #aaa;
+    font-size: 12px;
 }
 .club-name{
     font-weight: bold;
@@ -196,7 +208,8 @@ body{
     font-weight: 500;
 }
 .club-fav-count span:first-child{
-    color: red;
+    color: rgba(255,55,80,1);
+    margin-right: 5px;
     font-weight: bolder;
     font-size: 1.3em;
 }
@@ -209,7 +222,7 @@ body{
 .club-id{
     height: 100%;
     background-color: #5bc0de;
-    width: 10%;
+    width: 20%;
 }
 .club-id>p{
     line-height: 5;
@@ -223,5 +236,22 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
-    width: 90%;
+    width: 80%;
 }
+/*-----------------------------------
+             搜索结果内容样式
+--------------------------------------*/
+#result-content{
+    display: none;
+    padding: 8px 15px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top:44px;
+    z-index: 100;
+    border-top:1px solid #ddd;
+    overflow: hidden;
+}
+/*-----------------------------------
+             校榜内容样式
+--------------------------------------*/
