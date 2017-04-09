@@ -6,6 +6,13 @@ body{
 /*-----------------------------------------------------------------
                             导航栏样式
 --------------------------------------------------------------------*/
+:root{
+    --blue_1: #507BD7;
+    --blue_2: #00aeef;
+    --uni_font_color: black;
+    --heart_red: rgb(255,55,80);
+}
+
 .navbar{
     position: fixed;
     top: 0px;
@@ -19,7 +26,7 @@ body{
     float: left;
     vertical-align: middle;
     font-size: 1.3em;
-    color: rgb(80,123,215);
+    color: var(--blue_1);
     width: 35%;
 }
 .navbar-join img{
@@ -37,7 +44,7 @@ body{
     right: 0px;
     background-color: transparent;
     padding-top: 10px;
-    color: #00aeef;
+    color: var(--blue_2);
     font-size: 1.4em;
 }
 
@@ -61,7 +68,7 @@ body{
     font-size: 1.3em;
     border: 0px;
     float: right;
-    color: #00aeef;
+    color: var(--blue_2);
     background: transparent;
 }
 /*-----------------------------------------------------------------
@@ -197,40 +204,40 @@ body{
     color: #aaa;
     font-size: 12px;
 }
-.club-name{
+.club .club-name{
     font-weight: bold;
     font-size: 1.5em;
     margin-bottom: .1em;
 }
-.club-from{
+.club .club-from{
     font-size: 1.2em;
     margin-bottom: .2em;
     font-weight: 500;
 }
-.club-fav-count span:first-child{
-    color: rgba(255,55,80,1);
+.club .club-fav-count span:first-child{
+    color: var(--heart_red);
     margin-right: 5px;
     font-weight: bolder;
     font-size: 1.3em;
 }
-.club-fav-count .num{
+.club .club-fav-count .num{
     font-family:黑体;
     font-size: 1.3em;
     font-weight: 900;
 }
 
-.club-id{
+.club .club-id{
     height: 100%;
     background-color: #5bc0de;
     width: 20%;
 }
-.club-id>p{
+.club .club-id>p{
     line-height: 5;
     text-align: center;
     color: white;
     font-weight: bolder;
 }
-.club-pic{
+.club .club-pic{
     /*background-image: url("../images/club-pic.png");*/
     background-position: center center;
     background-size: cover;
@@ -255,3 +262,72 @@ body{
 /*-----------------------------------
              校榜内容样式
 --------------------------------------*/
+
+.uni-rank-table{
+    font-family: 微软雅黑;
+}
+.uni-rank-table-header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -8px;
+}
+
+.uni-icon{
+    background-image: url('../images/uni-icon.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 2em;
+}
+.uni-name{
+    margin-left: .4em;
+    color: var(--uni_font_color);
+    font-size: 1.3em;
+    font-weight: bolder;
+}
+.line-1{
+    height: 1px;
+    background-color: #ddd;
+    margin:2px 0px 10px 2.5em;
+}
+.line-2{
+    height: 1px;
+    background-color: #ddd;
+    margin: 4px 0px 20px -15px;
+}
+.uni-rank-table-row{
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--uni_font_color);
+    width: 100%;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.uni-rank-table .club-rank{
+    width: 20%;
+    color: var(--heart_red);
+}
+.uni-rank-table .club-name{
+    width: 30%;
+    margin-right: 10%;
+    font-weight: 800;
+    color: var(--uni_font_color);
+}
+.uni-rank-table .club-fav-count{
+    width: 40%;
+}
+.uni-rank-table .club-fav-count .glyphicon-heart{
+    font-size: 1.2em;
+    color: var(--heart_red);
+    margin-top: .2em;
+}
+.uni-rank-table .club-fav-count .num{
+    margin-left: 5px;
+}
