@@ -5,7 +5,8 @@
 var clientHeight, clientWidth;
 var searchfirstClick = false;
 $(document).ready(function () {
-
+    //init Carousel
+    $('#owl-demo').owlCarousel({items:1, autoPlay: true});
 
     $(window).on('load',function (e) {
         clientHeight = window.innerHeight;
