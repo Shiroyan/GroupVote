@@ -5,18 +5,17 @@
 var clientHeight, clientWidth;
 var searchfirstClick = false;
 $(document).ready(function () {
-    //init Carousel
+
+    clientHeight = window.innerHeight;
+    clientWidth = window.innerWidth;
+    var carouselImgHeight = clientWidth * 0.4;
+
+    $('.c1, .c2, .c3').css({height: carouselImgHeight + "px"});
 
     $(window).on('load',function (e) {
-        $('#owl-demo').owlCarousel({items:1, autoPlay: true});
 
-        clientHeight = window.innerHeight;
-        clientWidth = window.innerWidth;
 
-        var carouselImgHeight = clientWidth * 0.4;
-        $('.c1, .c2, .c3').css({height: carouselImgHeight + "px"});
         var contentHeight = clientHeight - $('#main-content').offset().top;
-
         output(contentHeight + ' ' + clientHeight);
         $('#main-content').css({height: contentHeight + "px"});
         $('#uni-rank-content').css({height: contentHeight + "px"});
@@ -24,7 +23,7 @@ $(document).ready(function () {
         $('#result-content').css({height: clientHeight-43 + "px"});
         init();
 
-    })
+    });
 
     $('.navbar-show-search').on('click', function () {
         $('.my-navbar').fadeOut();
