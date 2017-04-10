@@ -63,10 +63,10 @@ body{
 }
 .search-content{
     padding: 5px;
-    margin: 1% 1%;
+    margin: 2% 1%;
     float: left;
     width: 75%;
-    height: 80%;
+    height: 70%;
     border-radius: 10px;
     background: transparent;
 }
@@ -112,17 +112,22 @@ body{
 /*-----------------------------------
             中部标签（tab）样式
 --------------------------------------*/
-.exhibition .nav{
+.exhibition .nav-tabs{
+    width: 100%;
 }
 .main-tab, .uni-rank-tab, .sum-rank-tab{
     width: 33.3%;
+    height: 100%;
     text-align: center;
     font-weight: 500;
     font-size: 1.1em;
     font-family: 微软雅黑;
     color: black;
-}
 
+}
+.nav>li>a{
+    padding: 5%;
+}
 /*-----------------------------------
              主会场内容样式
 --------------------------------------*/
@@ -131,19 +136,18 @@ body{
 /*      主会场内容组件club样式    */
 .tab-content{
     position: relative;
-    height: 100%;
+    height: 92%;
 }
+
+
 #main-content, #uni-rank-content, #sum-rank-content{
-    padding: 8px 15px;
+    padding: 0px 5px;
     width: 100%;
-    height: 95%;
+    height: 100%;
     overflow: hidden;
     position: absolute;
 }
-#main-content .content{
-    height: 100%;
-    width: 100%;
-}
+
 .scroller{
     position: absolute;
     width: 100%;
@@ -151,7 +155,7 @@ body{
 .pullDown, .pullUp{
     height: 200px;
     width: 100%;
-    left: -15px;
+    left: -5px;
     background: #eee;
     text-align: center;
 }
@@ -274,11 +278,11 @@ body{
     font-family: 微软雅黑;
 }
 .uni-rank-table-header{
+    margin-top: 5%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin-left: -8px;
 }
 
 .uni-icon{

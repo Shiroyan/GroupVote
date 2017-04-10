@@ -15,7 +15,7 @@ $(document).ready(function () {
         items: 1,
         autoplay: true
     });
-
+    init();
     $(window).on('load',function (e) {
 
         // var carouselImgHeight = clientWidth * 0.4;
@@ -29,7 +29,6 @@ $(document).ready(function () {
         // $('#uni-rank-content').css({height: contentHeight + "px"});
         // $('#sum-rank-content').css({height: contentHeight + "px"});
         // $('#result-content').css({height: clientHeight-43 + "px"});
-        init();
 
     });
 
@@ -81,12 +80,12 @@ $(document).ready(function () {
     $('.uni-rank-tab').one('click',function () {
        setTimeout(function () {
            initScroller('#uni-rank-content');
-       },500);
+       },300);
     });
     $('.sum-rank-tab').one('click',function () {
         setTimeout(function () {
             initScroller('#sum-rank-content');
-        },500);
+        },300);
     })
 });
 
