@@ -6,15 +6,11 @@ var clientHeight, clientWidth;
 var searchfirstClick = false;
 $(document).ready(function () {
 
-    clientHeight = window.innerHeight;
-    clientWidth = window.innerWidth;
-    var carouselImgHeight = clientWidth * 0.4;
-
-    $('.c1, .c2, .c3').css({height: carouselImgHeight + "px"});
-
     $(window).on('load',function (e) {
-
-
+        clientHeight = window.innerHeight;
+        clientWidth = window.innerWidth;
+        var carouselImgHeight = clientWidth * 0.4;
+        $('.c1, .c2, .c3').css({height: carouselImgHeight + "px"});
         var contentHeight = clientHeight - $('#main-content').offset().top;
         output(contentHeight + ' ' + clientHeight);
         $('#main-content').css({height: contentHeight + "px"});
