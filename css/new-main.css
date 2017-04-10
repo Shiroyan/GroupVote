@@ -4,7 +4,6 @@ html{
 body{
     overflow:hidden;
     background-color: white;
-    width: 100%;
 }
 /*-----------------------------------------------------------------
                             导航栏样式
@@ -100,6 +99,7 @@ body{
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 25%;
     width: 100%;
 }
 .carousel{

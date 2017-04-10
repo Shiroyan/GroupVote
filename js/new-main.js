@@ -7,14 +7,16 @@ var searchfirstClick = false;
 $(document).ready(function () {
     clientHeight = window.innerHeight;
     clientWidth = window.innerWidth;
-    $('body').css({height: clientHeight});
+
+    $('html').css({width: clientWidth + "px"});
+    $('body').css({height: clientHeight + "px"});
 
     $(window).on('load',function (e) {
 
-        var carouselImgHeight = clientWidth * 0.4;
-        $('.c1').css({height: carouselImgHeight + "px"});
-        $('.c2').css({height: carouselImgHeight + "px"});
-        $('.c3').css({height: carouselImgHeight + "px"});
+        // var carouselImgHeight = clientWidth * 0.4;
+        // $('.c1').css({height: carouselImgHeight + "px"});
+        // $('.c2').css({height: carouselImgHeight + "px"});
+        // $('.c3').css({height: carouselImgHeight + "px"});
 
         var contentHeight = clientHeight - $('#main-content').offset().top;
 
