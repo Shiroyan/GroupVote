@@ -5,17 +5,19 @@
 var clientHeight, clientWidth;
 var searchfirstClick = false;
 $(document).ready(function () {
+    clientHeight = window.innerHeight;
+    clientWidth = window.innerWidth;
+    $('body').css({height: clientHeight});
 
     $(window).on('load',function (e) {
-        clientHeight = window.innerHeight;
-        clientWidth = window.innerWidth;
+
         var carouselImgHeight = clientWidth * 0.4;
         $('.c1').css({height: carouselImgHeight + "px"});
         $('.c2').css({height: carouselImgHeight + "px"});
         $('.c3').css({height: carouselImgHeight + "px"});
 
         var contentHeight = clientHeight - $('#main-content').offset().top;
-        output(contentHeight + ' ' + clientHeight);
+
         $('#main-content').css({height: contentHeight + "px"});
         $('#uni-rank-content').css({height: contentHeight + "px"});
         $('#sum-rank-content').css({height: contentHeight + "px"});
