@@ -8,8 +8,13 @@ $(document).ready(function () {
     clientHeight = window.innerHeight;
     clientWidth = window.innerWidth;
 
-    $('html').css({width: clientWidth + "px"});
+    // $('html').css({width: clientWidth + "px"});
     $('body').css({height: clientHeight + "px"});
+
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        autoplay: true
+    });
 
     $(window).on('load',function (e) {
 
@@ -18,23 +23,23 @@ $(document).ready(function () {
         // $('.c2').css({height: carouselImgHeight + "px"});
         // $('.c3').css({height: carouselImgHeight + "px"});
 
-        var contentHeight = clientHeight - $('#main-content').offset().top;
-
-        $('#main-content').css({height: contentHeight + "px"});
-        $('#uni-rank-content').css({height: contentHeight + "px"});
-        $('#sum-rank-content').css({height: contentHeight + "px"});
-        $('#result-content').css({height: clientHeight-43 + "px"});
+        // var contentHeight = clientHeight - $('#main-content').offset().top;
+        //
+        // $('#main-content').css({height: contentHeight + "px"});
+        // $('#uni-rank-content').css({height: contentHeight + "px"});
+        // $('#sum-rank-content').css({height: contentHeight + "px"});
+        // $('#result-content').css({height: clientHeight-43 + "px"});
         init();
 
     });
 
     $('.navbar-show-search').on('click', function () {
-        $('.my-navbar').fadeOut();
+        $('.home-bar').hide();
         $('.search-bar').fadeIn();
     });
     $('.close-btn').on('click', function () {
-        $('.search-bar').fadeOut();
-        $('.my-navbar').fadeIn();
+        $('.search-bar').hide()
+        $('.home-bar').fadeIn();
         $('#result-content').slideUp(200);
     });
     //处理搜索事件

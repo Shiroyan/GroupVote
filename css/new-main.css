@@ -14,26 +14,28 @@ body{
     --uni_font_color: black;
     --heart_red: rgb(255,55,80);
 }
-
 .my-navbar{
-    position: absolute;
-    top: 0px;
+    position: relative;
+    height: 5%;
     width: 100%;
     margin-bottom: 0px;
-    min-height: 40px;
-    background-color: rgba(255,255,255,.3);
+}
+.home-bar{
+    position: relative;
+    width: 100%;
+    background-color: white;
+    height: 100%;
 }
 .navbar-join{
-    margin: 7px 0px 5px 0px;
-    float: left;
-    vertical-align: middle;
-    font-size: 1.3em;
-    color: var(--blue_1);
     width: 35%;
+    height: 100%;
+    float: left;
+    background-image: url("../images/nav-logo-1.png");
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
 }
-.navbar-join img{
-    height: 30px;
-}
+
 .divider{
     /*font-weight: bold;*/
     color: #ddd;
@@ -41,36 +43,37 @@ body{
     line-height: 40px;
 }
 .navbar-show-search{
+    height: 100%;
     border: 0px;
     position: absolute;
     right: 0px;
     background-color: transparent;
-    padding-top: 10px;
+    line-height: 100%;
     color: var(--blue_2);
-    font-size: 1.4em;
+    font-size: 1.5em;
 }
 
 .search-bar{
-    position: absolute;
+    position: relative;
     width: 100%;
-    top:0px;
+    height: 100%;
     background-color: white;
     display: none;
     min-height: 44px;
 }
 .search-content{
-    margin: 8px 0px 0px 5px;
     padding: 5px;
+    margin: 1% 1%;
     float: left;
     width: 75%;
-    height: 100%;
+    height: 80%;
     border-radius: 10px;
     background: transparent;
 }
 .search-bar-btn{
-    padding: 6px 8px;
     height: 100%;
-    margin: 5px 0px 3px 0px;
+    width: 11%;
+    line-height: 100%;
     font-size: 1.3em;
     border: 0px;
     float: right;
@@ -80,12 +83,7 @@ body{
 /*-----------------------------------------------------------------
                                 轮播样式
 --------------------------------------------------------------------*/
-#owl-demo{
-    position: relative;
-    top:44px;
-    margin-bottom: 40px;
 
-}
 .c1{
     background-image: url("../images/1.jpg");
 }
@@ -99,17 +97,8 @@ body{
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 25%;
+    height: 100%;
     width: 100%;
-}
-.carousel{
-    margin-top: 47px;
-}
-.carousel-indicators li{
-    background-color: #777;
-}
-.carousel-indicators .active{
-    background-color: #aaa;
 }
 
 /*-----------------------------------------------------------------
@@ -117,12 +106,15 @@ body{
 --------------------------------------------------------------------*/
 .exhibition{
     position: relative;
+    width: 100%;
+    height: 70%;
 }
 /*-----------------------------------
             中部标签（tab）样式
 --------------------------------------*/
+.exhibition .nav{
+}
 .main-tab, .uni-rank-tab, .sum-rank-tab{
-
     width: 33.3%;
     text-align: center;
     font-weight: 500;
@@ -139,12 +131,18 @@ body{
 /*      主会场内容组件club样式    */
 .tab-content{
     position: relative;
+    height: 100%;
 }
 #main-content, #uni-rank-content, #sum-rank-content{
     padding: 8px 15px;
     width: 100%;
+    height: 95%;
     overflow: hidden;
     position: absolute;
+}
+#main-content .content{
+    height: 100%;
+    width: 100%;
 }
 .scroller{
     position: absolute;
@@ -260,6 +258,7 @@ body{
     display: none;
     padding: 8px 15px;
     width: 100%;
+    height: 95%;
     background-color: white;
     position: absolute;
     top:44px;
