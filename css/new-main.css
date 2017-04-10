@@ -277,8 +277,8 @@ body{
 .uni-rank-table{
     font-family: 微软雅黑;
 }
-.uni-rank-table-header{
-    margin-top: 5%;
+.uni-rank-table-header, .sum-rank-table-row{
+    margin-top: 3%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -325,7 +325,7 @@ body{
     width: 20%;
     color: var(--heart_red);
 }
-.uni-rank-table .club-name{
+.uni-rank-table .club-name, .sum-rank-table .club-name{
     width: 30%;
     margin-right: 10%;
     font-weight: 800;
@@ -334,11 +334,35 @@ body{
 .uni-rank-table .club-fav-count{
     width: 40%;
 }
-.uni-rank-table .club-fav-count .glyphicon-heart{
-    font-size: 1.2em;
+.uni-rank-table .club-fav-count .glyphicon-heart,
+.sum-rank-table .club-fav-count .glyphicon-heart{
+    font-size: 1.3em;
     color: var(--heart_red);
     margin-top: .2em;
 }
 .uni-rank-table .club-fav-count .num{
     margin-left: 5px;
+}
+
+.sum-rank-table-row{
+    margin: 0px 5%;
+}
+.sum-rank-table .club-name{
+    text-align: center;
+}
+.sum-rank-table .club-fav-count{
+    width: 30%;
+}
+.sum-rank-table .club-fav-count .num{
+    font-weight: 700;
+    font-size: 1.2em;
+}
+.sum-rank-table .club-rank{
+    text-align: center;
+    margin: .5em 0 0 0;
+    width: 20%;
+    color: var(--blue_2);
+    font-weight: bolder;
+    font-size: 2em;
+    font-family: 华文行楷;
 }
