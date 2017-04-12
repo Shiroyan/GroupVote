@@ -5,11 +5,10 @@
     --uni_font_color: black;
     --heart_red: rgb(255,55,80);
 }
+html,body{
+    overflow: hidden;
+}
 body{
-    overflow-x: hidden;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
     width: 100%;
 }
 *{
@@ -97,11 +96,8 @@ body{
     padding: 5% 5%;
     overflow-y:  auto;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
     font-family: "微软雅黑 Light";
     line-height: 180%;
-    /*box-shadow: 1px 1px #ddd inset;*/
     border-radius: 8px;
 
 }
@@ -124,7 +120,7 @@ body{
 }
 .user-icon{
     width: 12%;
-    height: 90%;
+    height: 85%;
     border-radius: 25px;
     background-image: url("../images/user-icon.png");
     background-size: contain;
