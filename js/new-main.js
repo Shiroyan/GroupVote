@@ -36,8 +36,8 @@ $(document).ready(function () {
     //2. if searchContent is as same as the old one, will not get new data
     //3. add 'key-enter' listener,trigger the search-btn
     //4. when get new content, we should refresh 'club click' event, because of ajax
-    $('.search-content').on('keydown',function (e) {
-        if(e.keyCode == 13){
+    $('.search-content').on('keydown', function (e) {
+        if (e.keyCode == 13) {
             $('.search-btn').trigger('click');
         }
     });
@@ -48,14 +48,14 @@ $(document).ready(function () {
         var searchContent = $('.search-content').val();
         var resultContainer = $('#result-content');
 
-        if(searchContent==""){
+        if (searchContent == "") {
             alert('搜索内容不能为空');
         }
-        else if(searchContent == oldSearchContent){
+        else if (searchContent == oldSearchContent) {
             // console.log('same');
             resultContainer.fadeIn();
         }
-        else{
+        else {
             oldSearchContent = searchContent;
 
             resultContainer.fadeIn();
@@ -83,26 +83,25 @@ $(document).ready(function () {
             appendIntoRsContent();
 
             refreshClubClickEvent();
-            if(!searchfirstClick){
+            if (!searchfirstClick) {
                 rsScroller = initScroller('#result-content');
                 searchfirstClick = true;
             }
-            else{
+            else {
                 rsScroller.refresh();
             }
 
             setTimeout(function () {
                 resultContainer.loadingAnimation('hide');
-            },500);
+            }, 500);
         }
     });
-
 
 
     //Handle uni-rank-tab's click
     //1. only execute once
     //2. get the rank info by ajax
-    $('.uni-rank-tab').one('click',function () {
+    $('.uni-rank-tab').one('click', function () {
         // $.get('',{type: "uni-rank"},function (data,status) {
         //     if(status == "success"){
         //         var Obj = JSON.parse(data);
@@ -128,19 +127,19 @@ $(document).ready(function () {
         // });
 
         //离线测试用
-        for(var i =0; i < 3; i++){
+        for (var i = 0; i < 3; i++) {
             appendIntoUniRankContent();
         }
         refreshClubNameClickEvent();
-       setTimeout(function () {
-           initScroller('#uni-rank-content');
-       },300);
+        setTimeout(function () {
+            initScroller('#uni-rank-content');
+        }, 300);
     });
 
     //Handle sum-rank-tab's click
     //1. only execute once
     //2. get the rank info by ajax
-    $('.sum-rank-tab').one('click',function () {
+    $('.sum-rank-tab').one('click', function () {
         // $.get('',{type: "all-rank"},function (data,status) {
         //     if(status == 'success'){
         //         var Obj = JSON.parse(data);
@@ -157,13 +156,25 @@ $(document).ready(function () {
         //         }
         //     }
         // });
-
         appendIntoSumRankContent();
         refreshClubNameClickEvent();
         setTimeout(function () {
             initScroller('#sum-rank-content');
-        },300);
-    })
+        }, 300);
+    });
+
+
+    //check for rank-flag
+    var flag = sessionStorage.getItem('rank_flag');
+    output("flag: " + flag);
+    if (flag) {
+        $('.sum-rank-tab').trigger('click');
+        $('.main-tab').removeClass('active');
+        $('#main-content').removeClass('active').removeClass('in');
+        $('.sum-rank-tab').addClass('active');
+        $('#sum-rank-content').addClass('active').addClass('in');
+        sessionStorage.removeItem('rank_flag');
+    }
 });
 
 
@@ -175,13 +186,13 @@ function appendIntoMainContent(options) {
         club_from: "深圳大学",
         club_fav_count: "666"
     }
-    options = $.extend(defaults,options);
+    options = $.extend(defaults, options);
 
     var htm = '<div class="club"><div class="club-header"><div class="club-id"><p>' +
         //id
         options.club_id +
 
-        "</p></div><div class=\"club-pic\" style=\"background-image: url('"+
+        "</p></div><div class=\"club-pic\" style=\"background-image: url('" +
         //club_pic
         options.club_pic +
 
@@ -205,18 +216,18 @@ function appendIntoMainContent(options) {
 function appendIntoUniRankContent(options) {
     var defaults = {
         uni_name: "深圳大学",
-        coArr:  [{club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
+        coArr: [{club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
             {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
             {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
             {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
             {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"}]
     };
 
-    options = $.extend(defaults,options);
+    options = $.extend(defaults, options);
 
     var coArr = options.coArr;
 
-    var htm ='<div class="uni-rank-table"><div class="uni-rank-table-header">' +
+    var htm = '<div class="uni-rank-table"><div class="uni-rank-table-header">' +
         "<div class=\"uni-icon\" style=\"background-image: url('" +
 
         // uni-icon
@@ -231,7 +242,7 @@ function appendIntoUniRankContent(options) {
 
     var len = coArr.length;
 
-    for(var i = 0; i < len; i++){
+    for (var i = 0; i < len; i++) {
         var co = coArr[i];
         var fragment = '<div class="uni-rank-table-row"><div class="club-rank">' +
             //club-rank
@@ -269,12 +280,12 @@ function appendIntoSumRankContent(options) {
             {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
             {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233}]
     }
-    options = $.extend(defaults,options);
+    options = $.extend(defaults, options);
 
     var htm = '<div class="sum-rank-table">';
     var coArr = options.coArr;
     var len = coArr.length;
-    for(var i = 0; i < len; i++){
+    for (var i = 0; i < len; i++) {
         var co = coArr[i];
 
         var fragment = '<div class="sum-rank-table-row"><div class="uni-icon"' +
@@ -308,13 +319,19 @@ function appendIntoSumRankContent(options) {
 
         htm += fragment;
     }
-    htm+='</div>';
+    htm += '</div>';
     $('#sum-rank-content .scroller').append(htm);
 
 }
 function appendIntoRsContent(options) {
     var defaults = {
-        coArr: [{club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
+        coArr: [{
+            club_id: 23,
+            club_pic: "images/club-pic.png",
+            club_name: "深大荔知",
+            club_from: "深圳大学",
+            club_fav_count: 666
+        },
             {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
             {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
             {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
@@ -323,19 +340,19 @@ function appendIntoRsContent(options) {
             {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666}]
     }
 
-    options = $.extend(defaults,options);
+    options = $.extend(defaults, options);
 
     var coArr = options.coArr;
     var len = coArr.length;
     var htm = "";
-    for(var i = 0; i < len; i++){
+    for (var i = 0; i < len; i++) {
         var co = coArr[i];
 
         var fragment = '<div class="club"><div class="club-header"><div class="club-id"><p>' +
             //id
             co.club_id +
 
-            "</p></div><div class=\"club-pic\" style=\"background-image: url('"+
+            "</p></div><div class=\"club-pic\" style=\"background-image: url('" +
             //club_pic
             co.club_pic +
 
@@ -353,9 +370,9 @@ function appendIntoRsContent(options) {
 
             '</span></div></div></div>';
 
-        htm+=fragment;
+        htm += fragment;
     }
-   $('#result-content .scroller').html(htm);
+    $('#result-content .scroller').html(htm);
 }
 function init() {
 
@@ -389,28 +406,27 @@ function init() {
     // });
 
     //test
-    for(var i = 0; i < 5; i++){
-        appendIntoMainContent({club_id: i+1});
+    for (var i = 0; i < 5; i++) {
+        appendIntoMainContent({club_id: i + 1});
     }
     refreshClubClickEvent();
     setTimeout(function () {
         initScroller("#main-content");
-    },500);
+    }, 500);
 
 }
 
 function refreshClubClickEvent() {
-    output('refresh club click event');
     $('.club').off('click');
-    $('.club').on('click',handleClubClick);
+    $('.club').on('click', handleClubClick);
 }
 
 function refreshClubNameClickEvent() {
     $('#uni-rank-content .club-name').off('click');
     $('#sum-rank-content .club-name').off('click');
 
-    $('#uni-rank-content .club-name').on('click',handleClubNameClick);
-    $('#sum-rank-content .club-name').on('click',handleClubNameClick);
+    $('#uni-rank-content .club-name').on('click', handleClubNameClick);
+    $('#sum-rank-content .club-name').on('click', handleClubNameClick);
 
 }
 
@@ -430,7 +446,7 @@ function handleClubNameClick() {
 }
 
 function saveIdAndRedirect(id) {
-    window.location.href='./introduction.html?id='+ id;
+    window.location.href = './introduction.html?id=' + id;
 }
 
 function output(m) {
@@ -444,11 +460,13 @@ function output(m) {
     var html = '<div class="loader"><div class="loading"><i></i><i></i><i></i><i></i><i></i></div></div>';
 
     $.fn.loadingAnimation = function (mode) {
-        if(mode == 'show'){
+        if (mode == 'show') {
             $(this).append(html);
             var eleHeight = $(this).css('height');
-            $('.loader').css({display: "flex",
-                height:eleHeight});
+            $('.loader').css({
+                display: "flex",
+                height: eleHeight
+            });
 
         }
         else {

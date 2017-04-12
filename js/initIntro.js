@@ -5,6 +5,22 @@ $(document).ready(function () {
 
     //init introduction.html, get more info by id (on sessionStorage)
     init();
+
+    //jump to main-tab
+    $('.to-main').on('click',function () {
+        window.location.href = "./index.html";
+    });
+    // jump to rank-tab
+    $('.to-rank').on('click',function () {
+        sessionStorage.setItem('rank_flag',true);
+        window.location.href = "./index.html";
+    });
+
+    //like
+    $('.like').on('click',function () {
+
+    });
+
 });
 
 function init() {

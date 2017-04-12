@@ -84,7 +84,7 @@ function initScroller(target) {
                 pullDown.removeClass('loading');
                 pullDownLabel.text('下拉刷新');
                 mainContent.loadingAnimation('hide');
-            }, 500);
+            }, 200);
 
 
         }
