@@ -14,9 +14,10 @@ body{
     overflow: hidden;
 }
 .container-fluid{
-    padding: 2% 0 0 0;
+    width: 100%;
+    padding: 2%;
     position: fixed;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .header{
     display: flex;
@@ -117,7 +118,7 @@ body{
 }
 .user-icon-list .glyphicon{
     height: 100%;
-    width: 10%;
+    width: 8%;
     font-size: 2.3em;
     line-height: 150%;
     margin-left: 2%;
@@ -133,10 +134,10 @@ body{
     margin-left: 2%;
 }
 .sponsor{
-    height: 25%;
-    margin: 1% 5% 10% 5%;
+    height: 15%;
+    margin: 2% 3% 15% 3%;
     background-image: url("../images/sponsor.jpg");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -168,7 +169,7 @@ body{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 45%;
     height: 80%;
     font-size: 1.3em;
 }
