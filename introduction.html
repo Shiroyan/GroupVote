@@ -23,7 +23,10 @@
         //set body's height
         $(document).ready(function () {
             var clientHeight = window.innerHeight;
-            $('body').css({height: clientHeight});
+            $('body').css({
+                height: clientHeight,
+                "overflow-x": "hidden"
+            });
         });
     </script>
     <script src="./js/initIntro.js"></script>
