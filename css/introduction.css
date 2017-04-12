@@ -10,6 +10,7 @@ body{
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
+    width: 100%;
 }
 *{
     box-sizing: border-box;
