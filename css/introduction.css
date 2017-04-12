@@ -1,0 +1,187 @@
+
+:root{
+    --blue_1: #507BD7;
+    --blue_2: #00aeef;
+    --uni_font_color: black;
+    --heart_red: rgb(255,55,80);
+}
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+*{
+    box-sizing: border-box;
+}
+.header{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+.left,.right{
+    width: 45%;
+    height: 100%;
+    margin: 5% 2%;
+}
+.left{
+    border: 1px solid #ddd;
+    /*box-shadow: 2px 2px #ddd;*/
+}
+.right{
+    padding-left: 5%;
+}
+.club-pic{
+    width: 100%;
+    height: 85%;
+    background-image: url("../images/club-pic.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.club-id{
+    height: 15%;
+    width: 100%;
+    background-color: rgba(230,230,230,.5);
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 150%;
+    color: #333;
+    font-weight: 500;
+}
+.club-from, .club-name, .club-fav-count, .uni-rank, .all-rank{
+    width: 100%;
+    height: 18%;
+    margin-bottom: .3em;
+    font-family: 微软雅黑;
+}
+.club-from, .uni-rank, .all-rank{
+    font-size: 1.1em;
+    font-family: "微软雅黑 Light";
+    font-weight: bold;
+}
+.club-name, .club-fav-count{
+    font-size: 1.5em;
+    font-weight: 800;
+}
+.club-fav-count{
+    color: var(--heart_red);
+}
+.uni-rank, .all-rank{
+    color: #aaa;
+}
+.club-from, .club-name{
+    color: #aaa;
+}
+.line{
+    margin-top: 5%;
+    width: 100%;
+    height: 4%;
+    text-align: center;
+    font-family: 微软雅黑;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    /*box-shadow: 1px 1px #ddd;*/
+
+}
+.club-detail{
+    border: 1px solid #ddd;
+    margin: 5% 5%;
+    height: 30%;
+    padding: 5% 5%;
+    overflow-y:  auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    font-family: "微软雅黑 Light";
+    line-height: 180%;
+    /*box-shadow: 1px 1px #ddd inset;*/
+    border-radius: 8px;
+
+}
+.user-icon-list{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 8%;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    /*box-shadow: 1px 1px #ddd;*/
+
+}
+.user-icon-list .glyphicon{
+    height: 100%;
+    width: 10%;
+    font-size: 2.3em;
+    line-height: 150%;
+    margin-left: 2%;
+}
+.user-icon{
+    width: 12%;
+    height: 90%;
+    border-radius: 25px;
+    background-image: url("../images/user-icon.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px outset #ddd;
+    margin-left: 2%;
+    /*box-shadow: 1px 1px #ddd;*/
+}
+.sponsor{
+    height: 17%;
+    margin: 3% 5% 0 5%;
+    background-image: url("../images/sponsor.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.footer-bar{
+    display: flex;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 10%;
+    background-color: transparent;
+    text-align: center;
+}
+.to-rank, .to-main, .like{
+    border: 1px solid #ddd;
+    background-color: rgba(255,255,255,.8);
+    font-family: "微软雅黑 Light";
+    border-radius: .5em;
+    font-weight: bold;
+
+}
+.to-main, .to-rank{
+    width: 25%;
+    height: 60%;
+    font-size: 1em;
+    color: #777;
+}
+.like{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 80%;
+    font-size: 1.3em;
+}
+.like .glyphicon{
+    font-size: 1.5em;
+    color: var(--heart_red);
+}
+.like .text{
+    margin: 0em 0em 0em .2em;
+    color: #777;
+
+}
+::-webkit-scrollbar{
+    width: 0px;
+}

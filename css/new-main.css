@@ -128,6 +128,10 @@ body{
 .nav>li>a{
     padding: 5%;
 }
+.tab-logo{
+    width: 20%;
+    height: 20%;
+}
 /*-----------------------------------
              主会场内容样式
 --------------------------------------*/
@@ -260,12 +264,11 @@ body{
 --------------------------------------*/
 #result-content{
     display: none;
-    padding: 8px 15px;
+    padding: 8px 15px 0px 15px;
     width: 100%;
-    height: 95%;
+    height: 94%;
     background-color: white;
     position: absolute;
-    top:44px;
     z-index: 100;
     border-top:1px solid #ddd;
     overflow: hidden;
@@ -296,7 +299,7 @@ body{
 }
 .uni-name{
     margin-left: .4em;
-    color: var(--uni_font_color);
+    color: #6C0022;
     font-size: 1.3em;
     font-weight: bolder;
 }
@@ -325,6 +328,9 @@ body{
     width: 20%;
     color: var(--heart_red);
 }
+.uni-rank-table .club-id, .sum-rank-table .club-id{
+    display: none;
+}
 .uni-rank-table .club-name, .sum-rank-table .club-name{
     width: 30%;
     margin-right: 10%;
@@ -345,7 +351,7 @@ body{
 }
 
 .sum-rank-table-row{
-    margin: 0px 5%;
+    margin: 3% 5%;
 }
 .sum-rank-table .club-name{
     text-align: center;
@@ -354,15 +360,16 @@ body{
     width: 30%;
 }
 .sum-rank-table .club-fav-count .num{
+    margin-left: .2em;
     font-weight: 700;
     font-size: 1.2em;
 }
 .sum-rank-table .club-rank{
     text-align: center;
-    margin: .5em 0 0 0;
+    margin: 0 0 0 0;
     width: 20%;
     color: var(--blue_2);
     font-weight: bolder;
     font-size: 2em;
-    font-family: 华文行楷;
+    font-family: "微软雅黑 Light";
 }

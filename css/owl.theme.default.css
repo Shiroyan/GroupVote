@@ -60,14 +60,15 @@
 }
 
 .owl-theme .owl-dots .owl-dot span {
-    width: 40%;
-    height: 50%;
-    margin-left: 50%;
+    width: 25%;
+    height: 70%;
+    margin-left: 30%;
     background: #D6D6D6;
     display: block;
     -webkit-backface-visibility: visible;
     transition: opacity 200ms ease;
-    border-radius: 100px;
+    border-radius: 1200px;
+    text-align: center;
 }
 
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {

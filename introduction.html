@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--<meta name="x5-fullscreen" content="true">-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>社团介绍</title>
+
+    <!-- Bootstrap -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/introduction.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        //set body's height
+        $(document).ready(function () {
+            var clientHeight = window.innerHeight;
+            $('body').css({height: clientHeight});
+        });
+    </script>
+    <script src="./js/initIntro.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="left">
+            <div class="club-pic">
+
+            </div>
+            <div class="club-id">
+                1号
+            </div>
+        </div>
+        <div class="club-info right">
+            <div class="club-from">深圳大学</div>
+            <div class="club-name">校戏剧社</div>
+            <div class="club-fav-count">
+                <span class="glyphicon glyphicon-heart"></span>
+                <span class="num">789</span>
+            </div>
+            <div class="uni-rank">校内排名: 2</div>
+            <div class="all-rank">全榜排名: 3</div>
+        </div>
+    </div>
+    <div class="line">社团介绍</div>
+    <div class="club-detail">
+        小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼
+        小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼
+        小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼小红是个大傻逼 小红是个大傻逼小红是个大傻逼
+    </div>
+
+    <div class="user-icon-list">
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        <div class="user-icon"></div>
+        <div class="user-icon"></div>
+        <div class="user-icon"></div>
+        <div class="user-icon"></div>
+        <div class="user-icon"></div>
+        <div class="user-icon"></div>
+    </div>
+    <div class="sponsor"></div>
+
+    <div class="footer-bar">
+        <div class="btn btn-default to-main">主会场</div>
+        <div class="btn btn-default like">
+            <span class="glyphicon glyphicon-heart"></span>
+            <p class="text">为他们点赞</p>
+        </div>
+        <div class="btn btn-default to-rank">排行榜</div>
+    </div>
+</body>
+</html>

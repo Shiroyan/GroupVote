@@ -9,6 +9,7 @@ function initScroller(target) {
     if (target == '#main-content') {
         var mainScroll = new IScroll(target
             , {
+                click: true,
                 scrollbars: true,
                 mouseWheel: true,
                 interactiveScrollbars: true,
@@ -17,8 +18,8 @@ function initScroller(target) {
                 probeType: 2
             }
         );
-        output("Max: " + mainScroll.maxScrollY);
-        output("Min: " + mainScroll.minScrollY);
+        // output("Max: " + mainScroll.maxScrollY);
+        // output("Min: " + mainScroll.minScrollY);
 
         // “下拉刷新，上拉加载更多” 逻辑：
         //status = 0, 1 ,2 为的是防止事件的多次触发，以及协调事件之间的执行（在刷新的时候就不能去加载更多）
@@ -62,7 +63,6 @@ function initScroller(target) {
         });
         //滚动完成事件
         mainScroll.on('scrollEnd', function () {
-            output('scrollEnd');
             if (status == 1) {
                 if (pullDown.hasClass('refresh')) {
                     status = 2;
@@ -91,9 +91,11 @@ function initScroller(target) {
         function pullUpAction() {
             mainContent.loadingAnimation('show');
 
+            //get idsArray
+
 //      ajax异步加载更多内容，返回json数据，数据格式之后再进行约定，一次加载7个
 //      数据应包含：club-pic(图片的url)、club_id、club_name、club_from（哪所学校）、club_fav_count
-//         $.get('php-url',{type: 'loadMore'},function (data,status) {
+//         $.get('',{type: 'loadmore',ids: idArray},function (data,status) {
 //
 //             if(status == "success"){
 //
@@ -110,6 +112,7 @@ function initScroller(target) {
                 for (var i = 0; i < 7; i++) {
                     appendIntoMainContent();
                 }
+                refreshClubClickEvent();
                 mainScroll.refresh();
                 status = 0;
                 pullUp.removeClass('refresh');
@@ -123,6 +126,7 @@ function initScroller(target) {
     else {
         var scroller = new IScroll(target
             , {
+                click: true,
                 scrollbars: true,
                 mouseWheel: true,
                 interactiveScrollbars: true,
