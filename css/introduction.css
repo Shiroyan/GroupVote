@@ -9,6 +9,10 @@
 *{
     box-sizing: border-box;
 }
+body{
+    position: fixed;
+    overflow-x: hidden;
+}
 .container-fluid{
     padding-top: 2%;
     padding: 0px;
