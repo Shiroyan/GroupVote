@@ -11,6 +11,7 @@ function init() {
     //get id
     var id = getQueryString('id');
     output(id);
+    $('.club-id').text(id + "号");
 
     //send request
     // $.get('',{type: 'intro', id: id}, function (data,status) {
