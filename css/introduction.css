@@ -5,7 +5,9 @@
     --uni_font_color: black;
     --heart_red: rgb(255,55,80);
 }
-
+htm,body{
+    overflow-x: hidden;
+}
 body{
     width: 100%;
     padding-top: 2%;
