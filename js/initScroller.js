@@ -1,6 +1,7 @@
 /**
  * Created by Siro on 2017/4/2.
  */
+//init scroller
 function initScroller(target) {
     if (target == null) {
         target = '#main-content';
@@ -138,5 +139,3 @@ function initScroller(target) {
     }
 
 }
-
-

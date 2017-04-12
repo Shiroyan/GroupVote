@@ -37,7 +37,6 @@ body{
 }
 
 .divider{
-    /*font-weight: bold;*/
     color: #ddd;
     font-size: 1.8em;
     line-height: 40px;
@@ -84,6 +83,84 @@ body{
                                 轮播样式
 --------------------------------------------------------------------*/
 
+.owl-theme{
+    position: relative;
+    height: 20%;
+    margin-bottom: 5%;
+}
+.owl-theme .owl-nav {
+    margin-top: 10px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.owl-theme .owl-nav [class*='owl-'] {
+    color: #FFF;
+    font-size: 14px;
+    margin: 5px;
+    padding: 4px 7px;
+    background: #D6D6D6;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.owl-theme .owl-nav [class*='owl-']:hover {
+    background: #869791;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.owl-theme .owl-nav .disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.owl-theme .owl-nav.disabled + .owl-dots {
+    margin-top: 2px;
+}
+
+.owl-theme .owl-dots {
+    height: 10%;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.owl-theme .owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 25%;
+    height: 70%;
+    margin-left: 30%;
+    background: #D6D6D6;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: opacity 200ms ease;
+    border-radius: 1200px;
+    text-align: center;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #869791;
+}
+.owl-theme .owl-stage-outer{
+    height: 90%;
+    width: 100%;
+}
+.owl-theme .owl-stage{
+    height: 100%;
+}
+.owl-theme .owl-item{
+    height: 100%;
+}
 .c1{
     background-image: url("../images/1.jpg");
 }
@@ -137,7 +214,9 @@ body{
 --------------------------------------*/
 
 
-/*      主会场内容组件club样式    */
+/*
+    主会场内容组件club样式
+*/
 .tab-content{
     position: relative;
     height: 92%;
@@ -185,6 +264,9 @@ body{
     line-height: 50px;
 }
 
+/*
+    club style
+*/
 .club{
     box-sizing: content-box;
     display: -webkit-flex;
@@ -260,7 +342,7 @@ body{
     width: 80%;
 }
 /*-----------------------------------
-             搜索结果内容样式
+             result-content
 --------------------------------------*/
 #result-content{
     display: none;
@@ -273,9 +355,9 @@ body{
     border-top:1px solid #ddd;
     overflow: hidden;
 }
-/*-----------------------------------
-             校榜内容样式
---------------------------------------*/
+/*
+        uni-rank-content
+*/
 
 .uni-rank-table{
     font-family: 微软雅黑;
@@ -349,7 +431,9 @@ body{
 .uni-rank-table .club-fav-count .num{
     margin-left: 5px;
 }
-
+/*
+    sum-rank-content
+*/
 .sum-rank-table-row{
     margin: 3% 5%;
 }
@@ -372,4 +456,52 @@ body{
     font-weight: bolder;
     font-size: 2em;
     font-family: "微软雅黑 Light";
+}
+/*
+    loading animation
+*/
+.loader{
+    width: 100%;
+    background-color: rgba(255,255,255,.5);
+    position: absolute;
+    top:0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+}
+@keyframes loading {
+    0%{
+        transform: scaleY(1);
+    }
+    50%{
+        transform: scaleY(0.4);
+    }
+    100%{
+        transform: scaleY(1);
+    }
+}
+
+.loader .loading i{
+    display: inline-block;
+    width: 4px;
+    height: 35px;
+    border-radius: 2px;
+    margin:0 2px;
+    background-color: #333;
+}
+.loader .loading i:nth-child(1){
+    animation: loading 1s ease-in 0.1s infinite;
+}
+.loader .loading i:nth-child(2){
+    animation: loading 1s ease-in 0.2s infinite;
+}
+.loader .loading i:nth-child(3){
+    animation: loading 1s ease-in 0.3s infinite;
+}
+.loader .loading i:nth-child(4){
+    animation: loading 1s ease-in 0.4s infinite;
+}
+.loader .loading i:nth-child(5){
+    animation: loading 1s ease-in 0.5s infinite;
 }

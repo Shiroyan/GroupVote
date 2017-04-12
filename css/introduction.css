@@ -129,10 +129,10 @@
     margin-left: 2%;
 }
 .sponsor{
-    height: 20%;
-    margin: 3% 5% 0 5%;
+    height: 25%;
+    margin: 1% 5% 10% 5%;
     background-image: url("../images/sponsor.jpg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
 }

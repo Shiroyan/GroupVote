@@ -415,22 +415,46 @@ function refreshClubNameClickEvent() {
 }
 
 //Handle club click event
-//1. get the id, and store it on sessionStorage
-//2. redirect introduction.html
+//1. get the id, and add it to href
+//2. redirect introduction.html?id=
 //3. when opening introduction.html, execute ajax to get more info by this id
 function handleClubClick() {
     var id = Number($(this).find('.club-id').text());
     saveIdAndRedirect(id);
 }
+
 // as same as club click event
 function handleClubNameClick() {
     var id = Number($(this).parent().find('.club-id').text());
     saveIdAndRedirect(id);
 }
+
 function saveIdAndRedirect(id) {
-    sessionStorage.setItem('id',id);
     window.location.href='./introduction.html?id='+ id;
 }
+
 function output(m) {
     console.log(m);
 }
+
+
+// js about loading animation
+(function ($) {
+    //mode: show / hide
+    var html = '<div class="loader"><div class="loading"><i></i><i></i><i></i><i></i><i></i></div></div>';
+
+    $.fn.loadingAnimation = function (mode) {
+        if(mode == 'show'){
+            $(this).append(html);
+            var eleHeight = $(this).css('height');
+            $('.loader').css({display: "flex",
+                height:eleHeight});
+
+        }
+        else {
+            $('.loader').remove();
+        }
+    };
+})(jQuery);
+
+
