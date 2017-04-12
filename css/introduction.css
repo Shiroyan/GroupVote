@@ -14,7 +14,7 @@ body{
     overflow: hidden;
 }
 .container-fluid{
-    padding-top: 2%;
+    padding: 2% 0 0 0;
     position: fixed;
     overflow-x: hidden;
 }
