@@ -166,7 +166,6 @@ $(document).ready(function () {
 
     //check for rank-flag
     var flag = sessionStorage.getItem('rank_flag');
-    output("flag: " + flag);
     if (flag) {
         $('.sum-rank-tab').trigger('click');
         $('.main-tab').removeClass('active');
