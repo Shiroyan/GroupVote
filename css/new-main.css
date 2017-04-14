@@ -22,12 +22,7 @@ body{
 /*-----------------------------------------------------------------
                             导航栏样式
 --------------------------------------------------------------------*/
-:root{
-    --blue_1: #507BD7;
-    --blue_2: #00aeef;
-    --uni_font_color: black;
-    --heart_red: rgb(255,55,80);
-}
+
 .my-navbar{
     position: relative;
     height: 5%;
@@ -62,7 +57,7 @@ body{
     right: 0px;
     background-color: transparent;
     line-height: 100%;
-    color: var(--blue_2);
+    color: #00aeef;
     font-size: 1.5em;
 }
 
@@ -90,7 +85,7 @@ body{
     font-size: 1.3em;
     border: 0px;
     float: right;
-    color: var(--blue_2);
+    color: #00aeef;
     background: transparent;
 }
 /*-----------------------------------------------------------------
@@ -238,7 +233,6 @@ body{
 
 
 #main-content, #uni-rank-content, #sum-rank-content{
-    padding: 0px 5px;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -299,7 +293,7 @@ body{
     overflow: hidden;
 }
 .club-header{
-    margin: 10px auto;
+    margin: 10px 0 10px 16px;
     width: 45%;
     height: 75px;
     display: inline-flex;
@@ -307,8 +301,8 @@ body{
     border-radius: .5em;
 }
 .club-info{
-    margin-left: 10%;
-    width: 40%;
+    margin-left: 5%;
+    width: 45%;
     text-align: left;
     font-family:黑体;
     color: #aaa;
@@ -325,7 +319,7 @@ body{
     font-weight: 500;
 }
 .club .club-fav-count span:first-child{
-    color: var(--heart_red);
+    color: rgb(255,55,80);
     margin-right: 5px;
     font-weight: bolder;
     font-size: 1.3em;
@@ -413,7 +407,7 @@ body{
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    color: var(--uni_font_color);
+    color: black;
     width: 100%;
     margin-left: 15px;
     margin-bottom: 5px;
@@ -421,7 +415,7 @@ body{
 }
 .uni-rank-table .club-rank{
     width: 20%;
-    color: var(--heart_red);
+    color: rgb(255,55,80);
 }
 .uni-rank-table .club-id, .sum-rank-table .club-id{
     display: none;
@@ -430,7 +424,7 @@ body{
     width: 30%;
     margin-right: 10%;
     font-weight: 800;
-    color: var(--uni_font_color);
+    color: black;
 }
 .uni-rank-table .club-fav-count{
     width: 40%;
@@ -438,7 +432,7 @@ body{
 .uni-rank-table .club-fav-count .glyphicon-heart,
 .sum-rank-table .club-fav-count .glyphicon-heart{
     font-size: 1.3em;
-    color: var(--heart_red);
+    color: rgb(255,55,80);
     margin-top: .2em;
 }
 .uni-rank-table .club-fav-count .num{
@@ -465,7 +459,7 @@ body{
     text-align: center;
     margin: 0 0 0 0;
     width: 20%;
-    color: var(--blue_2);
+    color: #00aeef;
     font-weight: bolder;
     font-size: 2em;
     font-family: "微软雅黑 Light";

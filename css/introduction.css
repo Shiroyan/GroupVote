@@ -1,11 +1,4 @@
 
-:root{
-    --blue_1: #507BD7;
-    --blue_2: #00aeef;
-    --uni_font_color: black;
-    --heart_red: rgb(255,55,80);
-}
-
 *{
     box-sizing: border-box;
 }
@@ -73,7 +66,7 @@ body{
     font-weight: 800;
 }
 .club-fav-count{
-    color: var(--heart_red);
+    color: rgb(255,55,80);
 }
 .uni-rank, .all-rank{
     color: #aaa;
@@ -173,7 +166,7 @@ body{
 }
 .like .glyphicon{
     font-size: 1.5em;
-    color: var(--heart_red);
+    color: rgb(255,55,80);
 }
 .like .text{
     margin: 0em 0em 0em .2em;
