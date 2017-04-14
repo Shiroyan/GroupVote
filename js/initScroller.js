@@ -125,7 +125,9 @@ function initScroller(target) {
                         }
                         refreshClubClickEvent();
 
-                        mainScroll.refresh();
+                        setTimeout(function () {
+                            mainScroll.refresh();
+                        },200);
 
                         pullUpLabel.text('加载更多');
                         setTimeout(function () {

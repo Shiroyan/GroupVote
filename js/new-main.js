@@ -4,6 +4,7 @@
 
 var clientHeight, clientWidth;
 var searchfirstClick = false;
+var uniScroller, sumScroller;
 $(document).ready(function () {
     clientHeight = window.innerHeight;
     clientWidth = window.innerWidth;
@@ -39,6 +40,7 @@ $(document).ready(function () {
     $('.search-content').on('keydown', function (e) {
         if (e.keyCode == 13) {
             $('.search-btn').trigger('click');
+            $(this).trigger('blur');
         }
     });
 
@@ -116,15 +118,16 @@ $(document).ready(function () {
                 else{
                     alert(headObj.extraInfo);
                 }
-
                 refreshClubNameClickEvent();
-                setTimeout(function () {
-                    initScroller('#uni-rank-content');
-                }, 100);
+
+
             }
         });
-
-
+    });
+    $('.uni-rank-tab').on('click',function () {
+        setTimeout(function () {
+            uniScroller.refresh();
+        },300);
     });
 
     //Handle sum-rank-tab's click
@@ -148,11 +151,18 @@ $(document).ready(function () {
             }
             refreshClubNameClickEvent();
             setTimeout(function () {
-                initScroller('#sum-rank-content');
-            }, 100);
+                sumScroller.refresh();
+            },300);
+
         });
 
     });
+    $('.sum-rank-tab').on('click',function () {
+        setTimeout(function () {
+            sumScroller.refresh();
+        },300);
+    });
+
 
 
     //check for rank-flag
@@ -387,18 +397,18 @@ function init() {
                     });
                 }
                 refreshClubClickEvent();
-                initScroller("#main-content");
+                setTimeout(function () {
+                    initScroller("#main-content");
+                },200);
             }
             else {
                 alert(headObj.extraInfo);
             }
         }
     });
+    uniScroller = initScroller('#uni-rank-content');
+    sumScroller = initScroller('#sum-rank-content');
 
-    //test
-    // for (var i = 0; i < 5; i++) {
-    //     appendIntoMainContent({club_id: i + 1});
-    // }
 }
 
 function refreshClubClickEvent() {

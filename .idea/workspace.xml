@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9f6869-2300-4549-98c8-de448f200acc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/user_icon.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/Club.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/ClubObject.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/all_list.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/icon.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/json.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/medoo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/safe.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/sch_list.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/user-icon.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/introduction.css" afterPath="$PROJECT_DIR$/css/introduction.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/new-main.css" afterPath="$PROJECT_DIR$/css/new-main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introduction.html" afterPath="$PROJECT_DIR$/introduction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/initIntro.js" afterPath="$PROJECT_DIR$/js/initIntro.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/initScroller.js" afterPath="$PROJECT_DIR$/js/initScroller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/new-main.js" afterPath="$PROJECT_DIR$/js/new-main.js" />
     </list>
@@ -44,23 +27,21 @@
       <file leaf-file-name="new-main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/new-main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="151" column="16" lean-forward="false" selection-start-line="151" selection-start-column="16" selection-end-line="151" selection-end-column="16" />
+            <state relative-caret-position="684">
+              <caret line="419" column="45" lean-forward="false" selection-start-line="419" selection-start-column="45" selection-end-line="419" selection-end-column="45" />
               <folding>
-                <element signature="n#!!block;n#appendIntoUniRankContent#0" expanded="false" />
                 <element signature="n#!!block;n#appendIntoSumRankContent#0" expanded="false" />
                 <element signature="n#!!block;n#appendIntoRsContent#0" expanded="false" />
-                <element signature="n#!!block;n#init#0" expanded="false" />
                 <element signature="n#!!block;n#refreshClubClickEvent#0" expanded="false" />
                 <element signature="n#!!block;n#handleClubClick#0" expanded="false" />
-                <element signature="e#13860#14348#0" expanded="false" />
-                <marker date="1492173678124" expanded="true" signature="5603:5688" ph="..." />
-                <marker date="1492173678124" expanded="true" signature="6977:6999" ph="..." />
-                <marker date="1492173678124" expanded="true" signature="6977:7065" ph="..." />
-                <marker date="1492173678124" expanded="true" signature="9063:9160" ph="..." />
-                <marker date="1492173678124" expanded="true" signature="9065:9088" ph="..." />
-                <marker date="1492173678124" expanded="true" signature="9065:9158" ph="..." />
-                <marker date="1492173678124" expanded="true" signature="11109:11201" ph="..." />
+                <element signature="e#14140#14628#0" expanded="false" />
+                <marker date="1492181718274" expanded="true" signature="5817:5902" ph="..." />
+                <marker date="1492181718274" expanded="true" signature="7191:7213" ph="..." />
+                <marker date="1492181718274" expanded="true" signature="7191:7279" ph="..." />
+                <marker date="1492181718274" expanded="true" signature="9277:9374" ph="..." />
+                <marker date="1492181718274" expanded="true" signature="9279:9302" ph="..." />
+                <marker date="1492181718274" expanded="true" signature="9279:9372" ph="..." />
+                <marker date="1492181718274" expanded="true" signature="11323:11415" ph="..." />
               </folding>
             </state>
           </provider>
@@ -79,7 +60,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
+            <state relative-caret-position="239">
               <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
               <folding>
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -95,14 +76,14 @@
       <file leaf-file-name="initScroller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/initScroller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="134" column="28" lean-forward="false" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+            <state relative-caret-position="515">
+              <caret line="136" column="32" lean-forward="true" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
               <folding>
                 <element signature="n#!!doc;n#initScroller#0" expanded="false" />
                 <element signature="e#1640#1661#0" expanded="false" />
                 <element signature="e#2180#2188#0" expanded="false" />
                 <element signature="e#2589#2591#0" expanded="false" />
-                <element signature="e#5246#5312#0" expanded="false" />
+                <element signature="e#5331#5397#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -175,14 +156,14 @@
       <find>spon</find>
       <find>echo</find>
       <find>load</find>
-      <find>init</find>
       <find>initScroller</find>
       <find>loadmore</find>
-      <find>search</find>
       <find>searc</find>
-      <find>uni</find>
       <find>right</find>
+      <find>search</find>
       <find>content</find>
+      <find>uni</find>
+      <find>init</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -208,10 +189,10 @@
         <option value="$PROJECT_DIR$/controller/medoo.php" />
         <option value="$PROJECT_DIR$/introduction.html" />
         <option value="$PROJECT_DIR$/js/initIntro.js" />
-        <option value="$PROJECT_DIR$/js/new-main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/introduction.css" />
         <option value="$PROJECT_DIR$/css/new-main.css" />
+        <option value="$PROJECT_DIR$/js/new-main.js" />
         <option value="$PROJECT_DIR$/js/initScroller.js" />
       </list>
     </option>
@@ -420,12 +401,12 @@
       <workItem from="1492068249835" duration="115000" />
       <workItem from="1492069021112" duration="4062000" />
       <workItem from="1492136310565" duration="55000" />
-      <workItem from="1492140311295" duration="17217000" />
+      <workItem from="1492140311295" duration="21355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="421952000" />
+    <option name="totallyTimeSpent" value="426090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -599,25 +580,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/new-main.js">
+    <entry file="file://$PROJECT_DIR$/css/introduction.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="151" column="16" lean-forward="false" selection-start-line="151" selection-start-column="16" selection-end-line="151" selection-end-column="16" />
+        <state relative-caret-position="403">
+          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/new-main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
           <folding>
-            <element signature="n#!!block;n#appendIntoUniRankContent#0" expanded="false" />
-            <element signature="n#!!block;n#appendIntoSumRankContent#0" expanded="false" />
-            <element signature="n#!!block;n#appendIntoRsContent#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#refreshClubClickEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleClubClick#0" expanded="false" />
-            <element signature="e#13860#14348#0" expanded="false" />
-            <marker date="1492173678124" expanded="true" signature="5603:5688" ph="..." />
-            <marker date="1492173678124" expanded="true" signature="6977:6999" ph="..." />
-            <marker date="1492173678124" expanded="true" signature="6977:7065" ph="..." />
-            <marker date="1492173678124" expanded="true" signature="9063:9160" ph="..." />
-            <marker date="1492173678124" expanded="true" signature="9065:9088" ph="..." />
-            <marker date="1492173678124" expanded="true" signature="9065:9158" ph="..." />
-            <marker date="1492173678124" expanded="true" signature="11109:11201" ph="..." />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#p#0;n#div#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -632,46 +620,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/introduction.css">
+    <entry file="file://$PROJECT_DIR$/js/new-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
+        <state relative-caret-position="684">
+          <caret line="419" column="45" lean-forward="false" selection-start-line="419" selection-start-column="45" selection-end-line="419" selection-end-column="45" />
           <folding>
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#p#0;n#div#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!block;n#appendIntoSumRankContent#0" expanded="false" />
+            <element signature="n#!!block;n#appendIntoRsContent#0" expanded="false" />
+            <element signature="n#!!block;n#refreshClubClickEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleClubClick#0" expanded="false" />
+            <element signature="e#14140#14628#0" expanded="false" />
+            <marker date="1492181718274" expanded="true" signature="5817:5902" ph="..." />
+            <marker date="1492181718274" expanded="true" signature="7191:7213" ph="..." />
+            <marker date="1492181718274" expanded="true" signature="7191:7279" ph="..." />
+            <marker date="1492181718274" expanded="true" signature="9277:9374" ph="..." />
+            <marker date="1492181718274" expanded="true" signature="9279:9302" ph="..." />
+            <marker date="1492181718274" expanded="true" signature="9279:9372" ph="..." />
+            <marker date="1492181718274" expanded="true" signature="11323:11415" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/new-main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/initScroller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="134" column="28" lean-forward="false" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+        <state relative-caret-position="515">
+          <caret line="136" column="32" lean-forward="true" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
           <folding>
             <element signature="n#!!doc;n#initScroller#0" expanded="false" />
             <element signature="e#1640#1661#0" expanded="false" />
             <element signature="e#2180#2188#0" expanded="false" />
             <element signature="e#2589#2591#0" expanded="false" />
-            <element signature="e#5246#5312#0" expanded="false" />
+            <element signature="e#5331#5397#0" expanded="false" />
           </folding>
         </state>
       </provider>
