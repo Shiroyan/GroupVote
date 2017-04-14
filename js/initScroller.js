@@ -34,7 +34,7 @@ function initScroller(target) {
         //this.y > 0.9 * maxScrollY)
         // ——> status = 1, add 'refresh', 进入refresh状态, 更新label "正在载入", 执行加载函数pullUpAction
 
-        var status = 0;
+        var state = 0;
         var mainContent = $('#main-content'),
             pullDown = $('.pullDown'),
             pullDownLabel = $('.pullDownLabel'),
@@ -44,16 +44,18 @@ function initScroller(target) {
 
         //scroll事件，手指按住屏幕滑动，但未松手
         mainScroll.on('scroll', function () {
-            if (status == 0 && !pullDown.attr('class').match('refresh|loading') && !pullUp.attr('class').match('refresh')) {
-                if (this.y > 50) {
-                    status = 1;
-                    pullDownLabel.text('松手刷新数据');
-                    pullDown.addClass('refresh');
 
-                    output('Refresh: ' + this.y);
-                }
-                else if (this.y <= this.maxScrollY) {
-                    status = 1;
+            if (state == 0 && !pullDown.attr('class').match('refresh|loading') && !pullUp.attr('class').match('refresh')) {
+                // if (this.y > 50) {
+                //     state = 1;
+                //     pullDownLabel.text('');
+                //     pullDown.addClass('refresh');
+                //
+                //     output('Refresh: ' + this.y);
+                // }
+                // else
+                if (this.y <= this.maxScrollY) {
+                    state = 1;
                     pullUpLabel.text('正在加载....');
                     pullUp.addClass('refresh');
                     pullUpAction();
@@ -62,54 +64,54 @@ function initScroller(target) {
 
         });
         //滚动完成事件
-        mainScroll.on('scrollEnd', function () {
-            if (status == 1) {
-                if (pullDown.hasClass('refresh')) {
-                    status = 2;
-                    pullDown.removeClass('refresh').addClass('loading');
-                    pullDownLabel.text('正在刷新....');
-                    pullDownAction();
-                }
-            }
-        });
+        // mainScroll.on('scrollEnd', function () {
+        //     if (state == 1) {
+        //         if (pullDown.hasClass('refresh')) {
+        //             state = 2;
+        //             pullDown.removeClass('refresh').addClass('loading');
+        //             pullDownLabel.text('正在刷新....');
+        //             pullDownAction();
+        //         }
+        //     }
+        // });
 
-
-        function pullDownAction() {
-//    .....................
-            mainContent.loadingAnimation('show');
-            setTimeout(function () {
-                mainScroll.refresh();
-                status = 0;
-                pullDown.removeClass('loading');
-                pullDownLabel.text('下拉刷新');
-                mainContent.loadingAnimation('hide');
-            }, 200);
-
-
-        }
+//
+//         function pullDownAction() {
+// //    .....................
+//             mainContent.loadingAnimation('show');
+//             setTimeout(function () {
+//                 mainScroll.refresh();
+//                 state = 0;
+//                 pullDown.removeClass('loading');
+//                 pullDownLabel.text('下拉刷新');
+//                 // mainContent.loadingAnimation('hide');
+//             }, 200);
+//
+//
+//         }
 
         function pullUpAction() {
-            mainContent.loadingAnimation('show');
-
             //get idsArray
             var idArrays = new Array();
             $('#main-content .club-id').each(function () {
                 idArrays.push(Number($(this).text()));
             });
-            output(idArrays);
+
 //      ajax异步加载更多内容，返回json数据，数据格式之后再进行约定，一次加载7个
 //      数据应包含：club-pic(图片的url)、club_id、club_name、club_from（哪所学校）、club_fav_count
             $.get('controller/json.php', {type: 'loadmore', ids: idArrays}, function (data, status) {
 
-                output("Original: " + data);
 
                 if (status == "success") {
+
                     var dataObj = JSON.parse(data);
 
                     var headObj = dataObj.head;
                     var clubObjArr = dataObj.data;
 
                     if (headObj.status == "success") {
+                        mainContent.loadingAnimation('show');
+
                         var len = clubObjArr.length;
                         for (var i = 0; i < len; i++) {
                             var co = clubObjArr[i]; // co = clubObject
@@ -121,22 +123,30 @@ function initScroller(target) {
                                 club_fav_count: co.club_fav_count
                             });
                         }
-                    }
-                    else{
-                        output(headObj.extraInfo);
-                    }
+                        refreshClubClickEvent();
 
-                    refreshClubClickEvent();
-                    mainScroll.refresh();
-                    status = 0;
-                    pullUp.removeClass('refresh');
-                    pullUpLabel.text('加载更多');
-                    mainContent.loadingAnimation('hide');
+                        mainScroll.refresh();
 
+                        pullUpLabel.text('加载更多');
+                        setTimeout(function () {
+                            state = 0;
+                            pullUp.removeClass('refresh');
+                            mainContent.loadingAnimation('hide');
+                        }, 400);
+                    }
+                    else {
+                        $('.tips').text('没有更多数据了哦...').fadeIn(100).delay(500).fadeOut(100);
+                        setTimeout(function(){
+                            state = 0;
+                            pullUp.removeClass('refresh');
+                        },500);
+                    }
                 }
                 else {
                     output('Load more falied');
                 }
+
+
             });
 
 //--------------------       离线测试用代码------------------------------
@@ -148,8 +158,6 @@ function initScroller(target) {
 //                 }
 //
 //             }, 500);
-
-
         }
     }
     else {

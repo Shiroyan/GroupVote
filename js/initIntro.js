@@ -31,7 +31,6 @@ function init() {
 
     //send request
     $.get('controller/json.php',{type: 'intro', id: id}, function (data,status) {
-        output(data);
 
         if(status == "success"){
             var Obj = JSON.parse(data);
@@ -49,6 +48,11 @@ function init() {
             $('.uni-rank').text("校内排名：" + uni_rank);
             $('.all-rank').text("全榜排名：" + all_rank);
             $('.club-detail').text(co.club_detail);
+            $('.user-icon').each(function (index) {
+                $(this).css({
+                    "background-image": "url('" + iconArr[index] + "')"
+                });
+            })
         }
 
     });

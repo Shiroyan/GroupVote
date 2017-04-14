@@ -85,7 +85,7 @@ function get_all_school_name()
     return $sch_names;
 }
 
-// 返回5个Club对象组成的数组 含社团与top最高计票数
+// 返回5个或以下Club对象组成的数组
 function get_clubs_by_name($sch_name)
 {
     $database = new medoo(array(

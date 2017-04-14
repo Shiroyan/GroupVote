@@ -94,10 +94,11 @@ Class ClubObject
 }
 
 $type = $_GET['type'];
-//$type = "loadmore";
+//$type = "uni_rank";
 switch ($type) {
     case "search":
         $content = $_GET['content'];
+        //$content='港中大(深圳)';
         search_club($content);
         break;
     case "init": //主会场乱序取10个对象数组
@@ -105,6 +106,8 @@ switch ($type) {
         break;
     case "loadmore": //获取id数组 主会场动态加载多10个
         $ids = $_GET['ids'];
+        //$ids = array(1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15);
+        //$ids = null;
         loadmore($ids);
         break;
     case "uni_rank" :
@@ -116,9 +119,11 @@ switch ($type) {
     case "intro": //进入introduction页面
         $id = $_GET['id'];
         intro($id);
+        break;
     case "like": //点赞
-        $code = $_GET['code'];
+        //$code = $_GET['code'];
         like($code);
+        break;
 }
 
 function uni_rank()
@@ -128,9 +133,13 @@ function uni_rank()
     $sch_lists = sch_lists_out($rank);
     //print_r($sch_lists);
     for ($i = 0; $i < sizeof($sch_lists); $i++) {
+        //校名循环
+        //先清空
+        $clubObjects=array();
         $sch_name = $rank[$i][0];
         //得到该学校
         $clubs = get_clubs_by_name($sch_name);
+        //print_r($clubs);
         if ($clubs != null) {
             $num_onlist = 5;
             // 不足5个 改展示数量
@@ -162,7 +171,7 @@ function uni_rank()
 function all_rank()
 {
     $clubs = get_clubs();
-    // print_r($clubs);
+     //print_r($clubs);
     foreach ($clubs as $c) {
         // 确定内容
         $id = $c['id'];
@@ -203,11 +212,10 @@ function intro($id)
      */
     $id = safe_check($id);
     if ($id == null) {
-        echo '<script language="JavaScript">;alert("社团编号错误 无法进入哦~");location.href="/ClubVote/main.html";</script>';
+        echo '<script language="JavaScript">;alert("社团编号错误 无法进入哦~");location.href="../index.html";</script>';
     } else {
         //id有效 获取clubObject
         $club = get_club_by_id($id);
-
         $club_pic = $club[0]['club_pic'];
         $sch_name = $club[0]['school_name'];
         $uni_icon = get_icon_by_schname($sch_name);
@@ -229,7 +237,6 @@ function intro($id)
         $intro_object = new Object(null, null);
         $intro_object->intro_Object($head, $data, $uni_rank, $all_rank, $icon5);
         echo json_encode($intro_object);
-
     }
 }
 
@@ -277,11 +284,12 @@ function load()
 //基本与load函数相同 但加多一个筛别
 function loadmore($ids)
 {
+
     if ($ids == null) {
         load();
     } else {
         //ids数组要确认对方发来的形式
-                $database = new medoo(array(
+        $database = new medoo(array(
             'database_name' => 'lizhi'
         ));
         $table = "club";
@@ -297,36 +305,64 @@ function loadmore($ids)
             "visible" => 1
         ]);
         shuffle($msgs);
+        //print_r($msgs);
         //取筛除后的10个
-        $limit_clubshow = 10;
-        for ($club_show = 0; $club_show < $limit_clubshow; $club_show++) {
-            $id = $msgs[$club_show]['id'];
-            if (in_array($id, $ids)) {
-                continue;
-            } else {
-                $club_pic = $msgs[$club_show]['club_pic'];
-                $sch_name = $msgs[$club_show]['school_name'];
-                $uni_icon = get_icon_by_schname($sch_name);
-                $club_name = $msgs[$club_show]['club_name'];
-                $fav = $msgs[$club_show]['fav_num'];
-                $info = $msgs[$club_show]['info'];
-                $club = new ClubObject($id, $club_pic, $sch_name, $uni_icon, $club_name, $fav, $info);
-                $clubs[] = $club;
+        if ($msgs == null || sizeof($ids) > sizeof($msgs)) {
+            echo '<script language="JavaScript">;alert("加载更多失败 无法取得数据");location.href="../index.html";</script>';
+        } else {
+            if (sizeof($ids) == sizeof($msgs)) {
+                //说明已经全部显示完毕
+                $status = 'fail';
+                $extraInfo = 'no more';
+                $head = new Head($status, $extraInfo);
+                $object = new Object($head, null);
+                echo json_encode($object);
+            } else if (sizeof($ids) < sizeof($msgs)) {
+                //剩余不足10个
+                if (sizeof($msgs) - sizeof($ids) < 10) {
+                    $limit_clubshow = sizeof($msgs) - sizeof($ids);
+                } else {
+                    $limit_clubshow = 10;
+                }
+
+
+                for ($club_show = 0; $club_show < $limit_clubshow; $club_show++) {
+
+                    $id = $msgs[$club_show]['id'];
+                    //$club_show变量必须一直增加 才能取到msgs里的数组 所以遇到重复
+                    //就增加$limit_clubshow 上限 然后让重复元素不赋值
+                    //$limit_clubshow 就等于抽中的重复ids数组大小+初始的$limit_clubshow
+
+                    if (in_array($id, $ids)) {
+                        $limit_clubshow++;
+                        continue;
+                    } else {
+                        $club_pic = $msgs[$club_show]['club_pic'];
+                        $sch_name = $msgs[$club_show]['school_name'];
+                        $uni_icon = get_icon_by_schname($sch_name);
+                        $club_name = $msgs[$club_show]['club_name'];
+                        $fav = $msgs[$club_show]['fav_num'];
+                        $info = $msgs[$club_show]['info'];
+                        $club = new ClubObject($id, $club_pic, $sch_name, $uni_icon, $club_name, $fav, $info);
+                        $clubs[] = $club;
+                    }
+                }
+                //print_r($clubs);
+                //存入object
+                $status = "success";
+                $extraInfo = null;
+                $head = new Head($status, $extraInfo);
+                $data = $clubs;
+                $object = new Object($head, $data);
+                echo json_encode($object);
             }
         }
-
-        //存入object
-        $status = "success";
-        $extraInfo = null;
-        $head = new Head($status, $extraInfo);
-        $data = $clubs;
-        $object = new Object($head, $data);
-        echo json_encode($object);
-
     }
+
 }
 
-function like(){
+function like()
+{
     //在icon.phpl里写
 }
 

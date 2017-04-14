@@ -118,12 +118,13 @@ $(document).ready(function () {
                 }
 
                 refreshClubNameClickEvent();
+                setTimeout(function () {
+                    initScroller('#uni-rank-content');
+                }, 100);
             }
         });
 
-        setTimeout(function () {
-            initScroller('#uni-rank-content');
-        }, 300);
+
     });
 
     //Handle sum-rank-tab's click
@@ -146,11 +147,11 @@ $(document).ready(function () {
                 }
             }
             refreshClubNameClickEvent();
+            setTimeout(function () {
+                initScroller('#sum-rank-content');
+            }, 100);
         });
-        // appendIntoSumRankContent();
-        setTimeout(function () {
-            initScroller('#sum-rank-content');
-        }, 300);
+
     });
 
 
@@ -434,7 +435,7 @@ function saveIdAndRedirect(id) {
 }
 
 function output(m) {
-    console.log(m);
+    // console.log(m);
 }
 
 

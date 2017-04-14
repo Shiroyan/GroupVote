@@ -5,6 +5,20 @@ body{
     overflow:hidden;
     background-color: white;
 }
+.tips{
+    position: fixed;
+    bottom: 30%;
+    left: 25%;
+    height: 8%;
+    width: 50%;
+    background-color: rgba(230,230,230,.5);
+    text-align: center;
+    border-radius: 10%;
+    border: 1px solid #ddd;
+    font-family: "微软雅黑";
+    line-height: 3;
+    display: none;
+}
 /*-----------------------------------------------------------------
                             导航栏样式
 --------------------------------------------------------------------*/
