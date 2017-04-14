@@ -30,24 +30,28 @@ function init() {
     $('.club-id').text(id + "号");
 
     //send request
-    // $.get('',{type: 'intro', id: id}, function (data,status) {
-    //     var Obj = JSON.parse(data);
-    //     var headObj = Obj.head;
-    //     var co = Obj.data;
-    //     var uni_rank = Obj.uni_rank;
-    //     var all_rank = Obj.all_rank;
-    //     var iconArr = Obj.icon5;
-    //
-    //     $('.club-pic').css({"background-image": "url('"+ co.club_pic + "')"});
-    //     $('.club-id').text(id + "号");
-    //     $('.club-name').text(co.club_name);
-    //     $('.club-from').text(co.club_from);
-    //     $('.club-fav-count .num').text(co.club_fav_count);
-    //     $('.uni-rank').text("校内排名：" + uni_rank);
-    //     $('.all-rank').text("全榜排名：" + all_rank);
-    //     $('.club-detail').text(co.club_detail);
-    //
-    // });
+    $.get('controller/json.php',{type: 'intro', id: id}, function (data,status) {
+        output(data);
+
+        if(status == "success"){
+            var Obj = JSON.parse(data);
+            var headObj = Obj.head;
+            var co = Obj.data;
+            var uni_rank = Obj.uni_rank;
+            var all_rank = Obj.all_rank;
+            var iconArr = Obj.icon5;
+
+            $('.club-pic').css({"background-image": "url('"+ co.club_pic + "')"});
+            $('.club-id').text(id + "号");
+            $('.club-name').text(co.club_name);
+            $('.club-from').text(co.club_from);
+            $('.club-fav-count .num').text(co.club_fav_count);
+            $('.uni-rank').text("校内排名：" + uni_rank);
+            $('.all-rank').text("全榜排名：" + all_rank);
+            $('.club-detail').text(co.club_detail);
+        }
+
+    });
 }
 
 function output(m) {

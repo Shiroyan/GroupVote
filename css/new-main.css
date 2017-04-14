@@ -334,7 +334,6 @@ body{
     font-weight: bolder;
 }
 .club .club-pic{
-    /*background-image: url("../images/club-pic.png");*/
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -371,7 +370,7 @@ body{
 }
 
 .uni-icon{
-    background-image: url('../images/uni-icon.jpg');
+    background-image: url('../images/uni_icon.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;

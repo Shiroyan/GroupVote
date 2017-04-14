@@ -56,7 +56,6 @@ function initScroller(target) {
                     status = 1;
                     pullUpLabel.text('正在加载....');
                     pullUp.addClass('refresh');
-                    output('Load more: ' + this.y);
                     pullUpAction();
                 }
             }
@@ -97,53 +96,58 @@ function initScroller(target) {
             $('#main-content .club-id').each(function () {
                 idArrays.push(Number($(this).text()));
             });
-
+            output(idArrays);
 //      ajax异步加载更多内容，返回json数据，数据格式之后再进行约定，一次加载7个
 //      数据应包含：club-pic(图片的url)、club_id、club_name、club_from（哪所学校）、club_fav_count
-//             $.get('', {type: 'loadmore', ids: idArray}, function (data, status) {
-//
-//                 if (status == "success") {
-//                     var dataObj = JSON.parse(data);
-//
-//                     var headObj = dataObj.head;
-//                     var clubObjArr = dataObj.data;
-//
-//                     if (headObj.status == "success") {
-//                         var len = clubObjArr.length;
-//                         for (var i = 0; i < len; i++) {
-//                             var co = clubObjArr[i]; // co = clubObject
-//                             appendIntoMainContent({
-//                                 club_id: co.club_id,
-//                                 club_pic: co.club_pic,
-//                                 club_name: co.club_name,
-//                                 club_from: co.club_from,
-//                                 club_fav_count: co.club_fav_count
-//                             });
-//                         }
-//                     }
-//                     else{
-//                         output(headObj.extraInfo);
-//                     }
-//                 }
-//                 else {
-//                     output('Load more falied');
-//                 }
-//             });
+            $.get('controller/json.php', {type: 'loadmore', ids: idArrays}, function (data, status) {
+
+                output("Original: " + data);
+
+                if (status == "success") {
+                    var dataObj = JSON.parse(data);
+
+                    var headObj = dataObj.head;
+                    var clubObjArr = dataObj.data;
+
+                    if (headObj.status == "success") {
+                        var len = clubObjArr.length;
+                        for (var i = 0; i < len; i++) {
+                            var co = clubObjArr[i]; // co = clubObject
+                            appendIntoMainContent({
+                                club_id: co.club_id,
+                                club_pic: co.club_pic,
+                                club_name: co.club_name,
+                                club_from: co.club_from,
+                                club_fav_count: co.club_fav_count
+                            });
+                        }
+                    }
+                    else{
+                        output(headObj.extraInfo);
+                    }
+
+                    refreshClubClickEvent();
+                    mainScroll.refresh();
+                    status = 0;
+                    pullUp.removeClass('refresh');
+                    pullUpLabel.text('加载更多');
+                    mainContent.loadingAnimation('hide');
+
+                }
+                else {
+                    output('Load more falied');
+                }
+            });
 
 //--------------------       离线测试用代码------------------------------
-
-            setTimeout(function () {
-                //append
-                for (var i = 0; i < 7; i++) {
-                    appendIntoMainContent();
-                }
-                refreshClubClickEvent();
-                mainScroll.refresh();
-                status = 0;
-                pullUp.removeClass('refresh');
-                pullUpLabel.text('加载更多');
-                mainContent.loadingAnimation('hide');
-            }, 500);
+//
+//             setTimeout(function () {
+//                 //append
+//                 for (var i = 0; i < 7; i++) {
+//                     appendIntoMainContent();
+//                 }
+//
+//             }, 500);
 
 
         }

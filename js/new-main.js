@@ -43,7 +43,6 @@ $(document).ready(function () {
     });
 
     var rsScroller;
-    var oldSearchContent;
     $('.search-btn').on('click', function () {
         var searchContent = $('.search-content').val();
         var resultContainer = $('#result-content');
@@ -51,49 +50,43 @@ $(document).ready(function () {
         if (searchContent == "") {
             alert('搜索内容不能为空');
         }
-        else if (searchContent == oldSearchContent) {
-            // console.log('same');
-            resultContainer.fadeIn();
-        }
+
         else {
-            oldSearchContent = searchContent;
 
             resultContainer.fadeIn();
             resultContainer.loadingAnimation('show');
 
-            // $.get('',{type:'search',content: searchContent},function (data,status) {
-            //     if(status == 'success'){
-            //         var Obj = JSON.parse(data);
-            //         var headObj = Obj.head;
-            //         var clubObjArray = Obj.data;
-            //
-            //         if(headObj.status == 'success'){
-            //            appendIntoRsContent({
-            //                coArr: clubObjArray
-            //            });
-            //         }
-            //         else {
-            //             var htm = '<div>' + headObj.extraInfo + '</div>';
-            //             $('#result-content .scroller').append(htm);
-            //         }
-            //     }
-            // });
+            $.get('controller/json.php', {type: 'search', content: searchContent}, function (data, status) {
 
-            //test
-            appendIntoRsContent();
+                output("Result: " + data);
 
-            refreshClubClickEvent();
-            if (!searchfirstClick) {
-                rsScroller = initScroller('#result-content');
-                searchfirstClick = true;
-            }
-            else {
-                rsScroller.refresh();
-            }
+                if (status == 'success') {
+                    var Obj = JSON.parse(data);
+                    var headObj = Obj.head;
+                    var clubObjArray = Obj.data;
 
-            setTimeout(function () {
+                    if (headObj.status == 'success') {
+                        appendIntoRsContent({
+                            coArr: clubObjArray
+                        });
+                    }
+                    else {
+                        var htm = '<div>' + headObj.extraInfo + '</div>';
+                        $('#result-content .scroller').html(htm);
+                    }
+                }
+
+
+                refreshClubClickEvent();
+                if (!searchfirstClick) {
+                    rsScroller = initScroller('#result-content');
+                    searchfirstClick = true;
+                }
+                else {
+                    rsScroller.refresh();
+                }
                 resultContainer.loadingAnimation('hide');
-            }, 500);
+            });
         }
     });
 
@@ -102,35 +95,32 @@ $(document).ready(function () {
     //1. only execute once
     //2. get the rank info by ajax
     $('.uni-rank-tab').one('click', function () {
-        // $.get('',{type: "uni-rank"},function (data,status) {
-        //     if(status == "success"){
-        //         var Obj = JSON.parse(data);
-        //         var headObj = Obj.head;
-        //         var uniObj_1Array = Obj.data;
-        //
-        //         if(headObj.status == "success"){
-        //             var uniLen = uniObj_1Array.length;
-        //
-        //             for(var i = 0; i < uniLen; i++){
-        //                 var uniObj = uniObj_1Array[i];
-        //                 var clubObjArray = uniObj.clubObjectArray;
-        //                 appendIntoUniRankContent({
-        //                     uni_name: uniObj.uni_name,
-        //                     coArr:  clubObjArray
-        //                 });
-        //             }
-        //         }
-        //         else{
-        //             alert(headObj.extraInfo);
-        //         }
-        //     }
-        // });
+        $.get('controller/json.php',{type: "uni_rank"},function (data,status) {
+            if(status == "success"){
+                var Obj = JSON.parse(data);
+                var headObj = Obj.head;
+                var uniObj_1Array = Obj.data;
 
-        //离线测试用
-        for (var i = 0; i < 3; i++) {
-            appendIntoUniRankContent();
-        }
-        refreshClubNameClickEvent();
+                if(headObj.status == "success"){
+                    var uniLen = uniObj_1Array.length;
+
+                    for(var i = 0; i < uniLen; i++){
+                        var uniObj = uniObj_1Array[i];
+                        var clubObjArray = uniObj.clubObjectArray;
+                        appendIntoUniRankContent({
+                            uni_name: uniObj.uni_name,
+                            coArr:  clubObjArray
+                        });
+                    }
+                }
+                else{
+                    alert(headObj.extraInfo);
+                }
+
+                refreshClubNameClickEvent();
+            }
+        });
+
         setTimeout(function () {
             initScroller('#uni-rank-content');
         }, 300);
@@ -140,24 +130,24 @@ $(document).ready(function () {
     //1. only execute once
     //2. get the rank info by ajax
     $('.sum-rank-tab').one('click', function () {
-        // $.get('',{type: "all-rank"},function (data,status) {
-        //     if(status == 'success'){
-        //         var Obj = JSON.parse(data);
-        //         var headObj = Obj.head;
-        //         var clubObjArray = Obj.data;
-        //
-        //         if(headObj.status == "success"){
-        //             appendIntoSumRankContent({
-        //                 coArr: clubObjArray
-        //             });
-        //         }
-        //         else{
-        //             alert(headObj.extraInfo);
-        //         }
-        //     }
-        // });
-        appendIntoSumRankContent();
-        refreshClubNameClickEvent();
+        $.get('controller/json.php',{type: "all_rank"},function (data,status) {
+            if(status == 'success'){
+                var Obj = JSON.parse(data);
+                var headObj = Obj.head;
+                var clubObjArray = Obj.data;
+
+                if(headObj.status == "success"){
+                    appendIntoSumRankContent({
+                        coArr: clubObjArray
+                    });
+                }
+                else{
+                    alert(headObj.extraInfo);
+                }
+            }
+            refreshClubNameClickEvent();
+        });
+        // appendIntoSumRankContent();
         setTimeout(function () {
             initScroller('#sum-rank-content');
         }, 300);
@@ -180,7 +170,7 @@ $(document).ready(function () {
 function appendIntoMainContent(options) {
     var defaults = {
         club_id: 1,
-        club_pic: "images/club-pic.png",
+        club_pic: "images/group_pic.png",
         club_name: "深大荔知",
         club_from: "深圳大学",
         club_fav_count: "666"
@@ -215,11 +205,11 @@ function appendIntoMainContent(options) {
 function appendIntoUniRankContent(options) {
     var defaults = {
         uni_name: "深圳大学",
-        coArr: [{club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
-            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
-            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
-            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"},
-            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni-icon.jpg"}]
+        coArr: [{club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni_icon.jpg"},
+            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni_icon.jpg"},
+            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni_icon.jpg"},
+            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni_icon.jpg"},
+            {club_id: 22, club_name: "信工义修组", club_fav_count: 8888, uni_icon: "images/uni_icon.jpg"}]
     };
 
     options = $.extend(defaults, options);
@@ -271,13 +261,13 @@ function appendIntoUniRankContent(options) {
 }
 function appendIntoSumRankContent(options) {
     var defaults = {
-        coArr: [{uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
-            {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
-            {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
-            {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
-            {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
-            {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
-            {uni_icon: "images/uni-icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233}]
+        coArr: [{uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
+            {uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
+            {uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
+            {uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
+            {uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
+            {uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233},
+            {uni_icon: "images/uni_icon.jpg", club_id: 66, club_name: "校学生会", club_fav_count: 233}]
     }
     options = $.extend(defaults, options);
 
@@ -326,17 +316,17 @@ function appendIntoRsContent(options) {
     var defaults = {
         coArr: [{
             club_id: 23,
-            club_pic: "images/club-pic.png",
+            club_pic: "images/group_pic.png",
             club_name: "深大荔知",
             club_from: "深圳大学",
             club_fav_count: 666
         },
-            {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
-            {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
-            {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
-            {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
-            {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
-            {club_id: 23, club_pic: "images/club-pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666}]
+            {club_id: 23, club_pic: "images/group_pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
+            {club_id: 23, club_pic: "images/group_pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
+            {club_id: 23, club_pic: "images/group_pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
+            {club_id: 23, club_pic: "images/group_pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
+            {club_id: 23, club_pic: "images/group_pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666},
+            {club_id: 23, club_pic: "images/group_pic.png", club_name: "深大荔知", club_from: "深圳大学", club_fav_count: 666}]
     }
 
     options = $.extend(defaults, options);
@@ -375,44 +365,39 @@ function appendIntoRsContent(options) {
 }
 function init() {
 
-    // $.get('http://192.168.220.129:8888',{type: 'init'},function (data,status) {
-    //     if(status == 'success'){
-    //         var dataObj = JSON.parse(data);
-    //
-    //         var headObj = dataObj.head;
-    //         var clubObjArr = dataObj.data;
-    //
-    //         if(headObj.status == "success"){
-    //             var len = clubObjArr.length;
-    //             for(var i = 0; i < len; i++){
-    //                 var co = clubObjArr[i]; // co = clubObject
-    //                 appendIntoMainContent({
-    //                     club_id: co.club_id,
-    //                     club_pic: co.club_pic,
-    //                     club_name: co.club_name,
-    //                     club_from: co.club_from,
-    //                     club_fav_count: co.club_fav_count
-    //                 });
-    //             }
-    //             setTimeout(function () {
-    //                 initScroller("#main-content");
-    //             },500);
-    //         }
-    //         else{
-    //             alert(headObj.extraInfo);
-    //         }
-    //     }
-    // });
+    $.get('controller/json.php', {type: "init"}, function (data, status) {
+        if (status == 'success') {
+
+            var dataObj = JSON.parse(data);
+
+            var headObj = dataObj.head;
+            var clubObjArr = dataObj.data;
+
+            if (headObj.status == "success") {
+                var len = clubObjArr.length;
+                for (var i = 0; i < len; i++) {
+                    var co = clubObjArr[i]; // co = clubObject
+                    appendIntoMainContent({
+                        club_id: co.club_id,
+                        club_pic: co.club_pic,
+                        club_name: co.club_name,
+                        club_from: co.club_from,
+                        club_fav_count: co.club_fav_count
+                    });
+                }
+                refreshClubClickEvent();
+                initScroller("#main-content");
+            }
+            else {
+                alert(headObj.extraInfo);
+            }
+        }
+    });
 
     //test
-    for (var i = 0; i < 5; i++) {
-        appendIntoMainContent({club_id: i + 1});
-    }
-    refreshClubClickEvent();
-    setTimeout(function () {
-        initScroller("#main-content");
-    }, 500);
-
+    // for (var i = 0; i < 5; i++) {
+    //     appendIntoMainContent({club_id: i + 1});
+    // }
 }
 
 function refreshClubClickEvent() {
