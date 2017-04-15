@@ -4,7 +4,7 @@
 
 var clientHeight, clientWidth;
 var searchfirstClick = false;
-var uniScroller, sumScroller;
+var uniScroller, sumScroller,mainScroller;
 $(document).ready(function () {
     clientHeight = window.innerHeight;
     clientWidth = window.innerWidth;
@@ -119,15 +119,16 @@ $(document).ready(function () {
                     alert(headObj.extraInfo);
                 }
                 refreshClubNameClickEvent();
-
-
+                setTimeout(function () {
+                    uniScroller.refresh();
+                },500);
             }
         });
     });
     $('.uni-rank-tab').on('click',function () {
         setTimeout(function () {
             uniScroller.refresh();
-        },300);
+        },500);
     });
 
     //Handle sum-rank-tab's click
@@ -152,7 +153,7 @@ $(document).ready(function () {
             refreshClubNameClickEvent();
             setTimeout(function () {
                 sumScroller.refresh();
-            },300);
+            },500);
 
         });
 
@@ -160,7 +161,7 @@ $(document).ready(function () {
     $('.sum-rank-tab').on('click',function () {
         setTimeout(function () {
             sumScroller.refresh();
-        },300);
+        },500);
     });
 
 
@@ -398,7 +399,7 @@ function init() {
                 }
                 refreshClubClickEvent();
                 setTimeout(function () {
-                    initScroller("#main-content");
+                    mainScroller = initScroller("#main-content");
                 },200);
             }
             else {

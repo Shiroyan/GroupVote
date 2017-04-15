@@ -44,6 +44,7 @@ function initScroller(target) {
 
         //scroll事件，手指按住屏幕滑动，但未松手
         mainScroll.on('scroll', function () {
+            this.refresh();
 
             if (state == 0 && !pullDown.attr('class').match('refresh|loading') && !pullUp.attr('class').match('refresh')) {
                 // if (this.y > 50) {
@@ -161,6 +162,7 @@ function initScroller(target) {
 //
 //             }, 500);
         }
+        return mainScroll;
     }
     else {
         var scroller = new IScroll(target
