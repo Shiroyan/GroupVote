@@ -442,7 +442,7 @@ function handleClubNameClick() {
 }
 
 function saveIdAndRedirect(id) {
-    window.location.href = './introduction.html?id=' + id;
+    window.location.href = './introduction.html?id=' + id ;
 }
 
 function output(m) {
